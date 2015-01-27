@@ -66,8 +66,25 @@ toyProblemsJs.prototype.nonRecursePow4 = function(number) {
     return true;
   }
   return false;
-  // body...
 };
+
+toyProblemsJs.prototype.factorialDivision = function(n, d) {
+  if (d <= 0 || n < 0 || n < d) {
+    return undefined;
+  } else if (n === 0) {
+    return 0;
+  } else if (n === d) {
+    return 1;
+  }
+  
+  var factorialDivided = 1;
+  for (var i = d + 1; i <= n; i++) {
+    factorialDivided *= i;
+  }
+  
+  return factorialDivided;
+}
+
 
 if ( typeof module !== "undefined" ) {
   module.exports = toyProblemsJs;

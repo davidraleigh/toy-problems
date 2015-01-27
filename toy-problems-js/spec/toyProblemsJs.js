@@ -98,7 +98,6 @@ describe('isPowerOf4()', function () {
 });
 
 //nonRecursePow4
-
 describe('nonRecursePow4()', function () {
   'use strict';
 
@@ -162,4 +161,25 @@ describe('nonRecursePow4()', function () {
   it('should return true', function () {
     expect(toyProblemsJs.nonRecursePow4(4096)).to.equal(true);
   });  
+});
+
+describe('factorialDivision()', function () {
+  'use strict';
+
+  it('exists', function () {
+    expect(toyProblemsJs.factorialDivision).to.be.a('function');
+
+  });
+
+  it('should return 20', function () {
+    expect(toyProblemsJs.factorialDivision(5, 3)).to.equal(20);
+  });
+
+  it('should return 10000', function () {
+    expect(toyProblemsJs.factorialDivision(10000, 9999)).to.equal(10000);
+  });
+
+  it('should return 6345015248033280', function () {
+    expect(toyProblemsJs.factorialDivision(98, 90)).to.equal(6345015248033280);
+  });
 });

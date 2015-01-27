@@ -47,5 +47,11 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testNonRecursivePowerOf4(); }
 } testDescription_suite_ToyProblemTestSuite_testNonRecursivePowerOf4;
 
+static class TestDescription_suite_ToyProblemTestSuite_testFactorialDivision : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testFactorialDivision() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 82, "testFactorialDivision" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testFactorialDivision(); }
+} testDescription_suite_ToyProblemTestSuite_testFactorialDivision;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";

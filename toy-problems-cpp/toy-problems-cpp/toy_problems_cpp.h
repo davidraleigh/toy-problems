@@ -20,6 +20,7 @@ class toy_problems_cpp
         static std::vector<int> noOdds(std::vector<int> values);
         static bool isPowerOf4(int value);
         static bool nonRecursivePow4(int value);
+        static uint64_t factorialDivision(uint64_t numerator, uint64_t denominator);
 };
 
 #pragma GCC visibility pop

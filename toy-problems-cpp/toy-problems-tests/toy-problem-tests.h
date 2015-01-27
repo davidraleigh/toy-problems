@@ -78,6 +78,13 @@ public:
         TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(1024 * 16), true);
         TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(4096 * 4096), true);
     }
+    
+    void testFactorialDivision(void)
+    {
+        TS_ASSERT_EQUALS(toy_problems_cpp::factorialDivision(5, 3), 20);
+        TS_ASSERT_EQUALS(toy_problems_cpp::factorialDivision(10000, 9999), 10000);
+        TS_ASSERT_EQUALS(toy_problems_cpp::factorialDivision(98, 90), 6345015248033280);
+    }
 };
 
 #endif

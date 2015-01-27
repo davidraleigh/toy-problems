@@ -57,3 +57,18 @@ bool toy_problems_cpp::isPowerOf4(int value) {
     
     return toy_problems_cpp::isPowerOf4(value / 4);
 }
+
+uint64_t toy_problems_cpp::factorialDivision(uint64_t numerator, uint64_t denominator) {
+    if (numerator < denominator) {
+        return 0;
+    } else if (numerator == denominator) {
+        return 1;
+    }
+    
+    uint64_t result = 1;
+    for (uint64_t i = denominator + 1; i <= numerator; i++) {
+        result *= i;
+    }
+    
+    return result;
+}
