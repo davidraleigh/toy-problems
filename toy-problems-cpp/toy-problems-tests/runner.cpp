@@ -35,5 +35,11 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testNoOdds(); }
 } testDescription_suite_ToyProblemTestSuite_testNoOdds;
 
+static class TestDescription_suite_ToyProblemTestSuite_testPowerOf4 : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testPowerOf4() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 58, "testPowerOf4" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testPowerOf4(); }
+} testDescription_suite_ToyProblemTestSuite_testPowerOf4;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";

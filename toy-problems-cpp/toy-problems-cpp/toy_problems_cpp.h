@@ -18,7 +18,7 @@ class toy_problems_cpp
 {
 	public:
         static std::vector<int> noOdds(std::vector<int> values);
-        static void noOdds(int *values, int length, int &output);
+        static bool isPowerOf4(int value);
 };
 
 #pragma GCC visibility pop

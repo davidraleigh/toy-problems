@@ -15,6 +15,20 @@ toyProblemsJs.prototype.noOdds = function(array) {
   return results;
 }
 
+toyProblemsJs.prototype.isPowerOf4 = function(number) {
+  if (Number(number) !== number || number % 1 !== 0) {
+    return false;
+  }
+
+  if (number % 4 !== 0) {
+    return false;
+  } else if (number / 4 === 1) {
+    return true
+  }
+
+  return toyProblemsJs.prototype.isPowerOf4(number / 4);
+};
+
 if ( typeof module !== "undefined" ) {
   module.exports = toyProblemsJs;
 }

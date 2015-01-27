@@ -54,6 +54,16 @@ public:
             TS_ASSERT_EQUALS(noOdds[i], i * 2);
         }
     }
+    
+    void testPowerOf4(void)
+    {
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(4), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(12), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(24), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(1020), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(1024), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(4096), true);
+    }
 };
 
 #endif

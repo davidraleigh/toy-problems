@@ -10,3 +10,13 @@ std::vector<int> toy_problems_cpp::noOdds(std::vector<int> values) {
     
     return evens;
 }
+
+bool toy_problems_cpp::isPowerOf4(int value) {
+    if (value % 4 != 0) {
+        return false;
+    } else if (value / 4 == 1) {
+        return true;
+    }
+    
+    return toy_problems_cpp::isPowerOf4(value / 4);
+}
