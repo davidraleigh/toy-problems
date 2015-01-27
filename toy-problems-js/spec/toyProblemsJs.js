@@ -64,6 +64,18 @@ describe('isPowerOf4()', function () {
     expect(toyProblemsJs.isPowerOf4('4')).to.equal(false);
   });
 
+  it('should return false', function () {
+    expect(toyProblemsJs.isPowerOf4(null)).to.equal(false);
+  });
+
+  it('should return false', function () {  
+    expect(toyProblemsJs.isPowerOf4(undefined)).to.equal(false);
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.isPowerOf4(function() {})).to.equal(false);
+  });
+
   it('should return true', function () {
     expect(toyProblemsJs.isPowerOf4(4)).to.equal(true);
   });
