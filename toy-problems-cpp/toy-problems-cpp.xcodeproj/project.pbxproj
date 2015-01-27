@@ -10,13 +10,40 @@
 		87F3D0871A718BA700037662 /* toy_problems_cpp.h in Headers */ = {isa = PBXBuildFile; fileRef = 87F3D0861A718BA700037662 /* toy_problems_cpp.h */; };
 		87F3D0891A718BA700037662 /* toy_problems_cppPriv.h in Headers */ = {isa = PBXBuildFile; fileRef = 87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */; };
 		87F3D08B1A718BA700037662 /* toy_problems_cpp.cp in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D08A1A718BA700037662 /* toy_problems_cpp.cp */; };
+		87F3D0981A718CF300037662 /* runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D0971A718CF300037662 /* runner.cpp */; };
+		87F3D0A01A719BBE00037662 /* libtoy-problems-cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3D0831A718BA700037662 /* libtoy-problems-cpp.dylib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		87F3D09C1A71994100037662 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 87F3D07B1A718BA700037662 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 87F3D0821A718BA700037662;
+			remoteInfo = "toy-problems-cpp";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		87F3D0931A718CF300037662 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		87F3D0831A718BA700037662 /* libtoy-problems-cpp.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libtoy-problems-cpp.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F3D0861A718BA700037662 /* toy_problems_cpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = toy_problems_cpp.h; sourceTree = "<group>"; };
 		87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = toy_problems_cppPriv.h; sourceTree = "<group>"; };
 		87F3D08A1A718BA700037662 /* toy_problems_cpp.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = toy_problems_cpp.cp; sourceTree = "<group>"; };
+		87F3D0951A718CF300037662 /* toy-problems-tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "toy-problems-tests"; sourceTree = BUILT_PRODUCTS_DIR; };
+		87F3D0971A718CF300037662 /* runner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = runner.cpp; sourceTree = "<group>"; };
+		87F3D09F1A719AD500037662 /* toy-problem-tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "toy-problem-tests.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +54,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		87F3D0921A718CF300037662 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87F3D0A01A719BBE00037662 /* libtoy-problems-cpp.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -34,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				87F3D0851A718BA700037662 /* toy-problems-cpp */,
+				87F3D0961A718CF300037662 /* toy-problems-tests */,
 				87F3D0841A718BA700037662 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -42,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				87F3D0831A718BA700037662 /* libtoy-problems-cpp.dylib */,
+				87F3D0951A718CF300037662 /* toy-problems-tests */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,6 +91,15 @@
 				87F3D08A1A718BA700037662 /* toy_problems_cpp.cp */,
 			);
 			path = "toy-problems-cpp";
+			sourceTree = "<group>";
+		};
+		87F3D0961A718CF300037662 /* toy-problems-tests */ = {
+			isa = PBXGroup;
+			children = (
+				87F3D0971A718CF300037662 /* runner.cpp */,
+				87F3D09F1A719AD500037662 /* toy-problem-tests.h */,
+			);
+			path = "toy-problems-tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -88,6 +134,25 @@
 			productReference = 87F3D0831A718BA700037662 /* libtoy-problems-cpp.dylib */;
 			productType = "com.apple.product-type.library.dynamic";
 		};
+		87F3D0941A718CF300037662 /* toy-problems-tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 87F3D0991A718CF300037662 /* Build configuration list for PBXNativeTarget "toy-problems-tests" */;
+			buildPhases = (
+				87F3D09E1A71998500037662 /* ShellScript */,
+				87F3D0911A718CF300037662 /* Sources */,
+				87F3D0921A718CF300037662 /* Frameworks */,
+				87F3D0931A718CF300037662 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				87F3D09D1A71994100037662 /* PBXTargetDependency */,
+			);
+			name = "toy-problems-tests";
+			productName = "toy-problems-tests";
+			productReference = 87F3D0951A718CF300037662 /* toy-problems-tests */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -98,6 +163,9 @@
 				ORGANIZATIONNAME = "David Raleigh";
 				TargetAttributes = {
 					87F3D0821A718BA700037662 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					87F3D0941A718CF300037662 = {
 						CreatedOnToolsVersion = 6.1;
 					};
 				};
@@ -115,9 +183,26 @@
 			projectRoot = "";
 			targets = (
 				87F3D0821A718BA700037662 /* toy-problems-cpp */,
+				87F3D0941A718CF300037662 /* toy-problems-tests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		87F3D09E1A71998500037662 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#CXXTEST_CPP_UPDATE=\"/Users/davidraleigh/code/third-party/cxxtest/cxxtest_cpp_update.py\"\n#CXXTEST_PYTHON_DIR=\"/Users/davidraleigh/code/third-party/cxxtest/python\"\n\n# these should be an environment variable but, sorry-butt xcode doesn't load ~/.bash_profile\nCXXTEST_CPP_UPDATE=\"/Users/davidraleigh/code/third-party/cxxtest/cxxtest_cpp_update.py\"\nCXXTEST_PYTHON_DIR=\"/Users/davidraleigh/code/third-party/cxxtest/python\"\n\npython $CXXTEST_CPP_UPDATE -c $CXXTEST_PYTHON_DIR -t $PROJECT_DIR/$TARGET_NAME\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87F3D07F1A718BA700037662 /* Sources */ = {
@@ -128,7 +213,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		87F3D0911A718CF300037662 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				87F3D0981A718CF300037662 /* runner.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		87F3D09D1A71994100037662 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 87F3D0821A718BA700037662 /* toy-problems-cpp */;
+			targetProxy = 87F3D09C1A71994100037662 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		87F3D08C1A718BA700037662 /* Debug */ = {
@@ -231,6 +332,34 @@
 			};
 			name = Release;
 		};
+		87F3D09A1A718CF300037662 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../third-party/cxxtest",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		87F3D09B1A718CF300037662 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SRCROOT)/../../../third-party/cxxtest",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -250,6 +379,16 @@
 				87F3D0901A718BA700037662 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		87F3D0991A718CF300037662 /* Build configuration list for PBXNativeTarget "toy-problems-tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87F3D09A1A718CF300037662 /* Debug */,
+				87F3D09B1A718CF300037662 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
