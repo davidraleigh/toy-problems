@@ -10,13 +10,15 @@
 #ifndef toy_problems_cpp_
 #define toy_problems_cpp_
 
+#include <vector>
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
 class toy_problems_cpp
 {
 	public:
-		void HelloWorld(const char *);
+        static std::vector<int> noOdds(std::vector<int> values);
+        static void noOdds(int *values, int length, int &output);
 };
 
 #pragma GCC visibility pop
