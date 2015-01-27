@@ -96,3 +96,70 @@ describe('isPowerOf4()', function () {
     expect(toyProblemsJs.isPowerOf4(4096)).to.equal(true);
   });  
 });
+
+//nonRecursePow4
+
+describe('nonRecursePow4()', function () {
+  'use strict';
+
+  it('exists', function () {
+    expect(toyProblemsJs).to.be.a('object');
+
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4(1)).to.equal(false);
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4(5)).to.equal(false);
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4(12)).to.equal(false);
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4(1020)).to.equal(false);
+  });  
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4(4.1)).to.equal(false);
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4('4')).to.equal(false);
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4(null)).to.equal(false);
+  });
+
+  it('should return false', function () {  
+    expect(toyProblemsJs.nonRecursePow4(undefined)).to.equal(false);
+  });
+
+  it('should return false', function () {
+    expect(toyProblemsJs.nonRecursePow4(function() {})).to.equal(false);
+  });
+
+  it('should return true', function () {
+    expect(toyProblemsJs.nonRecursePow4(4)).to.equal(true);
+  });
+
+  it('should return true', function () {
+    expect(toyProblemsJs.nonRecursePow4(16)).to.equal(true);
+  });
+
+  it('should return true', function () {
+    expect(toyProblemsJs.nonRecursePow4(64)).to.equal(true);
+  });  
+
+  it('should return true', function () {
+    expect(toyProblemsJs.nonRecursePow4(1024)).to.equal(true);
+  });
+
+  it('should return true', function () {
+    expect(toyProblemsJs.nonRecursePow4(4096)).to.equal(true);
+  });  
+});

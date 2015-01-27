@@ -29,6 +29,46 @@ toyProblemsJs.prototype.isPowerOf4 = function(number) {
   return toyProblemsJs.prototype.isPowerOf4(number / 4);
 };
 
+toyProblemsJs.prototype.nonRecursePow4 = function(number) {
+  //http://graphics.stanford.edu/~seander/bithacks.html#CountBitsSetParallel
+  var bitCount = function(value) {
+    var c; // store the total here
+    var S = [1, 2, 4, 8, 16]; // Magic Binary Numbers
+    var B = [0x55555555, 0x33333333, 0x0F0F0F0F, 0x00FF00FF, 0x0000FFFF];
+    
+    c = value - ((value >> 1) & B[0]);
+    c = ((c >> S[1]) & B[1]) + (c & B[1]);
+    c = ((c >> S[2]) + c) & B[2];
+    c = ((c >> S[3]) + c) & B[3];
+    c = ((c >> S[4]) + c) & B[4];
+    
+    return c;
+  }
+
+  var msb32 = function(x)
+  {
+    var bval = [0,1,2,2,3,3,3,3,4,4,4,4,4,4,4,4];
+    
+    var r = 0;
+    if (x & 0xFFFF0000) { r += 16/1; x >>= 16/1; }
+    if (x & 0x0000FF00) { r += 16/2; x >>= 16/2; }
+    if (x & 0x000000F0) { r += 16/4; x >>= 16/4; }
+    return r + bval[x];
+  }
+
+  if (Number(number) !== number || number % 1 !== 0) {
+    return false;
+  }
+
+  var bCount = bitCount(number);
+  var msbPosition = msb32(number);
+  if (bCount === 1 && msbPosition > 2 && (msbPosition - 1) % 2 === 0) {
+    return true;
+  }
+  return false;
+  // body...
+};
+
 if ( typeof module !== "undefined" ) {
   module.exports = toyProblemsJs;
 }

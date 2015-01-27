@@ -64,6 +64,20 @@ public:
         TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(1024), true);
         TS_ASSERT_EQUALS(toy_problems_cpp::isPowerOf4(4096), true);
     }
+    
+    void testNonRecursivePowerOf4(void)
+    {
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(-4), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(0), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(4), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(12), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(24), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(1020), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(1024), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(4096), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(1024 * 16), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::nonRecursivePow4(4096 * 4096), true);
+    }
 };
 
 #endif

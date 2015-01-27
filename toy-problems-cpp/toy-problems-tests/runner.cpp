@@ -15,7 +15,7 @@
 
 int main( int argc, char *argv[] ) {
  int status;
-    std::ofstream ofstr("TestResults.xml");
+    std::ofstream ofstr("toy-problems-tests_TestResults.xml");
     CxxTest::XUnitPrinter tmp(ofstr);
     CxxTest::RealWorldDescription::_worldName = "cxxtest";
     status = CxxTest::Main<CxxTest::XUnitPrinter>( tmp, argc, argv );
@@ -40,6 +40,12 @@ public:
  TestDescription_suite_ToyProblemTestSuite_testPowerOf4() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 58, "testPowerOf4" ) {}
  void runTest() { suite_ToyProblemTestSuite.testPowerOf4(); }
 } testDescription_suite_ToyProblemTestSuite_testPowerOf4;
+
+static class TestDescription_suite_ToyProblemTestSuite_testNonRecursivePowerOf4 : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testNonRecursivePowerOf4() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 68, "testNonRecursivePowerOf4" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testNonRecursivePowerOf4(); }
+} testDescription_suite_ToyProblemTestSuite_testNonRecursivePowerOf4;
 
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
