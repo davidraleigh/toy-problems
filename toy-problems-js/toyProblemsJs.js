@@ -85,6 +85,57 @@ toyProblemsJs.prototype.factorialDivision = function(n, d) {
   return factorialDivided;
 }
 
+//Given a set of vertices V that describes a path in a graph, 
+//with each vertex assigned a weight. Find a subset of V that 
+//maximizes the sum of vertex weights without any two vertices 
+//in that subset being adjacent.
+
+// this solution assumes no negative numbers (maybe that doesn't matter?)
+toyProblemsJs.prototype.greatestNonAdjacentWeights = function(vertices) {
+  // input should be an array
+  if (!Array.isArray(vertices)) {
+    return null;
+  }
+
+  var heaviestWeight = 0;
+  var heaviestIndices = [];
+  var currentWeight = 0;
+  var currentIndices = [];
+
+  var recurse = function(currentIndex) {
+    // end case
+    if (currentIndex != undefined && currentIndex >= vertices.length) {
+      if (currentWeight > heaviestWeight) {
+        // make a copy of the current indices?
+        heaviestIndices = currentIndices.slice();
+        heaviestWeight = currentWeight;
+      }
+      return;      
+    }
+    // push new info on for current index
+    if (currentIndex != undefined) {
+      currentIndices.push(currentIndex);
+      currentWeight += vertices[currentIndex];
+
+      // recurse into oneStep
+      recurse(currentIndex + 2);
+      // recurse into twoStep
+      recurse(currentIndex + 3);
+
+      // pull info off for current index
+      currentIndices.pop();
+      currentWeight -= vertices[currentIndex];
+    } else {
+      // recurse at index 0
+      recurse(0);
+      // recurse at index 1;
+      recurse(1);
+    }
+  };
+  recurse();
+
+  return heaviestIndices;
+}
 
 if ( typeof module !== "undefined" ) {
   module.exports = toyProblemsJs;

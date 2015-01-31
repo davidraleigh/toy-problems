@@ -72,3 +72,71 @@ uint64_t toy_problems_cpp::factorialDivision(uint64_t numerator, uint64_t denomi
     
     return result;
 }
+
+void recurse(std::size_t currentIndex,
+             std::vector<double> weights,
+             std::vector<std::size_t>& currentIndices,
+             double currentWeight,
+             std::vector<std::size_t>& heaviestIndexSet,
+             double* pHeaviestWeight)
+{
+    if (currentIndex >= weights.size()) {
+        if (currentWeight > (*pHeaviestWeight)) {
+            (*pHeaviestWeight) = currentWeight;
+            heaviestIndexSet.assign(currentIndices.begin(),currentIndices.end());
+        }
+        return;
+    }
+    
+    // push new info on for current index
+
+    currentIndices.push_back(currentIndex);
+    currentWeight += weights[currentIndex];
+    
+    // recurse into oneStep
+    recurse(currentIndex + 2,
+            weights,
+            currentIndices,
+            currentWeight,
+            heaviestIndexSet,
+            pHeaviestWeight);
+    
+    // recurse into twoStep
+    recurse(currentIndex + 3,
+            weights,
+            currentIndices,
+            currentWeight,
+            heaviestIndexSet,
+            pHeaviestWeight);
+    
+    // pull info off for current index
+    currentIndices.pop_back();
+    currentWeight -= weights[currentIndex];
+}
+
+
+std::vector<size_t> toy_problems_cpp::greatestNonAdjacentWeights(std::vector<double> weights) {
+    std::vector<size_t> heaviestIndexSet;
+    std::vector<size_t> currentIndices;
+    double heaviestWeight = 0;
+    double currentWeight = 0;
+    double *pHeaviestWeight = &heaviestWeight;
+    
+    
+    recurse(0,
+            weights,
+            currentIndices,
+            currentWeight,
+            heaviestIndexSet,
+            pHeaviestWeight);
+    // recurse at index 1;
+    recurse(1,
+            weights,
+            currentIndices,
+            currentWeight,
+            heaviestIndexSet,
+            pHeaviestWeight);
+    
+    return heaviestIndexSet;
+}
+

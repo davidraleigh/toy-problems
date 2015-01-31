@@ -183,3 +183,76 @@ describe('factorialDivision()', function () {
     expect(toyProblemsJs.factorialDivision(98, 90)).to.equal(6345015248033280);
   });
 });
+
+describe('greatestNonAdjacentWeights()', function () {
+  'use strict';
+
+  it('exists', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights).to.be.a('function');
+  });
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([5])).to.eql([0]);
+  });
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 9])).to.eql([0]);
+  });
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([9, 10])).to.eql([1]);
+  });  
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 10])).to.eql([0]);
+  });  
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 10, 1])).to.eql([0, 2]);
+  });
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 12, 1])).to.eql([1]);
+  });  
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 12, 2, 0])).to.eql([0, 2]);
+  });    
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 9, 2, 3])).to.eql([0, 3]);
+  });      
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 11, 2, 3])).to.eql([1, 3]);
+  });  
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 12, 2, 0, 4])).to.eql([0, 2, 4]);
+  });    
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 9, 2, 3, 0])).to.eql([0, 3]);
+  });      
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 11, 2, 3, 1])).to.eql([1, 3]);
+  });  
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 13, 2, 3, 5])).to.eql([1, 4]);
+  });
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([9, 10, 1, 0])).to.eql([0, 2]);
+  });  
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 10, 0, 1, 1, 1])).to.eql([0, 3, 5]);
+  });
+
+  it('should return proper indices', function () {
+    expect(toyProblemsJs.greatestNonAdjacentWeights([10, 10, 0, 1, 1, 1])).to.eql([0, 3, 5]);
+  });  
+});
+

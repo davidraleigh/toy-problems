@@ -21,6 +21,7 @@ class toy_problems_cpp
         static bool isPowerOf4(int value);
         static bool nonRecursivePow4(int value);
         static uint64_t factorialDivision(uint64_t numerator, uint64_t denominator);
+        static std::vector<size_t> greatestNonAdjacentWeights(std::vector<double> weights);
 };
 
 #pragma GCC visibility pop

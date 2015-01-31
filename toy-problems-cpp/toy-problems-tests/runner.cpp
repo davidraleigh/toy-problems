@@ -53,5 +53,11 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testFactorialDivision(); }
 } testDescription_suite_ToyProblemTestSuite_testFactorialDivision;
 
+static class TestDescription_suite_ToyProblemTestSuite_testGreatestNonAdjacentWeights : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testGreatestNonAdjacentWeights() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 89, "testGreatestNonAdjacentWeights" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testGreatestNonAdjacentWeights(); }
+} testDescription_suite_ToyProblemTestSuite_testGreatestNonAdjacentWeights;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";

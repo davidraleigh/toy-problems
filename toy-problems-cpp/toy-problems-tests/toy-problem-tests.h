@@ -85,6 +85,105 @@ public:
         TS_ASSERT_EQUALS(toy_problems_cpp::factorialDivision(10000, 9999), 10000);
         TS_ASSERT_EQUALS(toy_problems_cpp::factorialDivision(98, 90), 6345015248033280);
     }
+    
+    void testGreatestNonAdjacentWeights(void)
+    {
+        size_t aExpected []= {0};
+        std::vector<double> aInputs = {5};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(aInputs).data(),
+                            aExpected,
+                            sizeof(aExpected));
+        
+        size_t bExpected []= {0};
+        std::vector<double> bInputs = {10, 9};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(bInputs).data(),
+                            bExpected,
+                            sizeof(bExpected));
+        
+        size_t cExpected []= {1};
+        std::vector<double> cInputs = {9, 10};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(cInputs).data(),
+                            cExpected,
+                            sizeof(cExpected));
+        
+        size_t dExpected []= {0};
+        std::vector<double> dInputs = {10, 10};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(dInputs).data(),
+                            dExpected,
+                            sizeof(dExpected));
+        
+        size_t eExpected []= {0, 2};
+        std::vector<double> eInputs = {10, 10, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(eInputs).data(),
+                            eExpected,
+                            sizeof(eExpected));
+        
+        size_t fExpected []= {1};
+        std::vector<double> fInputs = {10, 12, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(fInputs).data(),
+                            fExpected,
+                            sizeof(fExpected));
+        
+        size_t gExpected []= {0, 2};
+        std::vector<double> gInputs = {10, 12, 2, 0};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(gInputs).data(),
+                            gExpected,
+                            sizeof(gExpected));
+        
+        size_t hExpected []= {0, 3};
+        std::vector<double> hInputs = {10, 9, 2, 3};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(hInputs).data(),
+                            hExpected,
+                            sizeof(hExpected));
+        
+        size_t jExpected []= {1, 3};
+        std::vector<double> jInputs = {10, 11, 2, 3};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(jInputs).data(),
+                            jExpected,
+                            sizeof(jExpected));
+        
+        size_t kExpected []= {0, 2, 4};
+        std::vector<double> kInputs = {10, 12, 2, 0, 4};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(kInputs).data(),
+                            kExpected,
+                            sizeof(kExpected));
+        
+        size_t lExpected []= {0, 3};
+        std::vector<double> lInputs = {10, 9, 2, 3, 0};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(lInputs).data(),
+                            lExpected,
+                            sizeof(lExpected));
+        
+        size_t mExpected []= {1, 3};
+        std::vector<double> mInputs = {10, 11, 2, 3, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(mInputs).data(),
+                            mExpected,
+                            sizeof(mExpected));
+        
+        size_t nExpected []= {1, 4};
+        std::vector<double> nInputs = {10, 13, 2, 3, 5};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(nInputs).data(),
+                            nExpected,
+                            sizeof(nExpected));
+        
+        size_t oExpected []= {0, 2};
+        std::vector<double> oInputs = {9, 10, 2, 0};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(oInputs).data(),
+                            oExpected,
+                            sizeof(oExpected));
+        
+        size_t pExpected []= {0, 3, 5};
+        std::vector<double> pInputs = {10, 10, 0, 1, 1, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(pInputs).data(),
+                            pExpected,
+                            sizeof(pExpected));
+        
+        size_t qExpected []= {0, 3, 5};
+        std::vector<double> qInputs = {10, 10, 0, 1, 1, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::greatestNonAdjacentWeights(qInputs).data(),
+                            qExpected,
+                            sizeof(qExpected));
+    }
 };
 
 #endif
