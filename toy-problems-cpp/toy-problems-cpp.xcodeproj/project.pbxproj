@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		87F3D0871A718BA700037662 /* toy_problems_cpp.h in Headers */ = {isa = PBXBuildFile; fileRef = 87F3D0861A718BA700037662 /* toy_problems_cpp.h */; };
 		87F3D0891A718BA700037662 /* toy_problems_cppPriv.h in Headers */ = {isa = PBXBuildFile; fileRef = 87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */; };
-		87F3D08B1A718BA700037662 /* toy_problems_cpp.cp in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D08A1A718BA700037662 /* toy_problems_cpp.cp */; };
+		87F3D08B1A718BA700037662 /* toy_problems_cpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D08A1A718BA700037662 /* toy_problems_cpp.cpp */; };
 		87F3D0981A718CF300037662 /* runner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D0971A718CF300037662 /* runner.cpp */; };
 		87F3D0A01A719BBE00037662 /* libtoy-problems-cpp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 87F3D0831A718BA700037662 /* libtoy-problems-cpp.dylib */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,7 @@
 		87F3D0831A718BA700037662 /* libtoy-problems-cpp.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libtoy-problems-cpp.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F3D0861A718BA700037662 /* toy_problems_cpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = toy_problems_cpp.h; sourceTree = "<group>"; };
 		87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = toy_problems_cppPriv.h; sourceTree = "<group>"; };
-		87F3D08A1A718BA700037662 /* toy_problems_cpp.cp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = toy_problems_cpp.cp; sourceTree = "<group>"; };
+		87F3D08A1A718BA700037662 /* toy_problems_cpp.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = toy_problems_cpp.cpp; sourceTree = "<group>"; };
 		87F3D0951A718CF300037662 /* toy-problems-tests */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "toy-problems-tests"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F3D0971A718CF300037662 /* runner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = runner.cpp; sourceTree = "<group>"; };
 		87F3D09F1A719AD500037662 /* toy-problem-tests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "toy-problem-tests.h"; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			children = (
 				87F3D0861A718BA700037662 /* toy_problems_cpp.h */,
 				87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */,
-				87F3D08A1A718BA700037662 /* toy_problems_cpp.cp */,
+				87F3D08A1A718BA700037662 /* toy_problems_cpp.cpp */,
 			);
 			path = "toy-problems-cpp";
 			sourceTree = "<group>";
@@ -209,7 +209,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87F3D08B1A718BA700037662 /* toy_problems_cpp.cp in Sources */,
+				87F3D08B1A718BA700037662 /* toy_problems_cpp.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
