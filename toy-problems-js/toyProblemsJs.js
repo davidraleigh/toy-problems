@@ -168,10 +168,31 @@ toyProblemsJs.prototype.sumOfSquaresAllSets = function(totalInteger) {
   // can be squared and summed up to equal the totalInteger
   var setList = [];
 
+  var recurse = function(value, set, maxValue) {
+    var set = set || [];
+    if (value === 0) {
+      setList.push(set);
+      return;
+    }
 
+    // should be an integer
+    var biggestSqrt = Math.floor(Math.sqrt(value));
 
+    if (maxValue !== undefined && biggestSqrt > maxValue) {
+      biggestSqrt = maxValue;
+    }
+    
+    while(biggestSqrt > 0) {
+      var copiedSet = set.slice();
+      copiedSet.push(biggestSqrt);
+      var remainder = value - Math.pow(biggestSqrt, 2);
+      recurse(remainder, copiedSet, biggestSqrt);
+      biggestSqrt--;
+    }
+  }
 
-
+  recurse(totalInteger)
+  return setList;
 }
 
 

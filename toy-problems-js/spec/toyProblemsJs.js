@@ -294,10 +294,45 @@ describe('sumOfSquaresGreatestSet()', function() {
   });  
 });
 
+describe('sumOfSquaresAllSets()', function() {
+  it('exists', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets).to.be.a('function');
+  });
 
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets(0)).to.eql([[]]);
+  });
 
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets(1)).to.eql([[1]]);
+  });
 
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets(3)).to.eql([[1, 1, 1]]);
+  });
 
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets(4)).to.eql([[2], [1, 1, 1, 1]]);
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets(5)).to.eql([[2, 1], [1, 1, 1, 1, 1]]);
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets(8)).to.eql([[2, 2], [2, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]]);
+  });  
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresAllSets(14)).to.eql([ 
+      [ 3, 2, 1 ],                                     // 9 + 4+ 1
+      [ 3, 1, 1, 1, 1, 1 ],                            // 9 + 1 + 1 + 1 + 1 + 1 
+      [ 2, 2, 2, 1, 1 ],                               // 4 + 4 + 4 + 1 + 1 
+      [ 2, 2, 1, 1, 1, 1, 1, 1 ],                      // 4 + 4 + 1 + 1 + 1 + 1 + 1 + 1
+      [ 2/*4*/, 1/*5*/, 1/*6*/, 1/*7*/, 1/*8*/, 1/*9*/, 1/*10*/, 1/*11*/, 1/*12*/, 1/*13*/, 1/*14*/ ],             // 4 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1 + 1
+      [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ] ]);
+  });
+});
 
 
 
