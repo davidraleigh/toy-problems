@@ -244,7 +244,7 @@ describe('greatestNonAdjacentWeights()', function () {
   });
 
   it('should return proper indices', function () {
-    expect(toyProblemsJs.greatestNonAdjacentWeights([9, 10, 1, 0])).to.eql([0, 2]);
+    expect(toyProblemsJs.greatestNonAdjacentWeights([9, 10, 2, 0])).to.eql([0, 2]);
   });  
 
   it('should return proper indices', function () {
@@ -255,4 +255,66 @@ describe('greatestNonAdjacentWeights()', function () {
     expect(toyProblemsJs.greatestNonAdjacentWeights([10, 10, 0, 1, 1, 1])).to.eql([0, 3, 5]);
   });  
 });
+
+describe('sumOfSquaresGreatestSet()', function() {
+  it('exists', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet).to.be.a('function');
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(0)).to.eql([]);
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(1)).to.eql([1]);
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(3)).to.eql([1, 1, 1]);
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(4)).to.eql([2]);
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(5)).to.eql([2, 1]);
+  });
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(8)).to.eql([2, 2]);
+  });  
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(14)).to.eql([3, 2, 1]);
+  });  
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresGreatestSet(25+36)).to.eql([7, 3, 1, 1, 1]);
+  });  
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -137,6 +137,53 @@ toyProblemsJs.prototype.greatestNonAdjacentWeights = function(vertices) {
   return heaviestIndices;
 }
 
+
+//The question is sum of squares. 
+//Given an integer, 
+//return a list of numbers that when squared and summed equal the given integer.
+// the big assumption is that all the numbers returned will need to be integers
+toyProblemsJs.prototype.sumOfSquaresGreatestSet = function(totalInteger) {
+  var set = [];
+
+  var recurse = function(value) {
+    if (value === 0) {
+      return;
+    }
+
+    var biggestSqrt = Math.floor(Math.sqrt(value));
+    set.push(biggestSqrt);
+    var remainder = value - Math.pow(biggestSqrt, 2);
+    
+    recurse(remainder);
+  }
+
+  recurse(totalInteger);
+
+  return set;
+}
+
+toyProblemsJs.prototype.sumOfSquaresAllSets = function(totalInteger) {
+  // there will be multiple ways to create a sum of squares that equal the totalInteger
+  // therefore there is an array--setList--that contains all of the sets of integers that
+  // can be squared and summed up to equal the totalInteger
+  var setList = [];
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 if ( typeof module !== "undefined" ) {
   module.exports = toyProblemsJs;
 }
