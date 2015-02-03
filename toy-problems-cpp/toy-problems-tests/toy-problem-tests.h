@@ -184,6 +184,114 @@ public:
                             qExpected,
                             sizeof(qExpected));
     }
+    
+    void testSumOfSquaresGreatestSet(void)
+    {
+        std::vector<uint64_t> set = toy_problems_cpp::sumOfSquaresGreatestSet(0);
+        TS_ASSERT_EQUALS(set.size(), 0);
+        
+        uint64_t aExpected []= {1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(1).data(),
+                            aExpected,
+                            sizeof(aExpected));
+
+        uint64_t bExpected []= {1, 1, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(3).data(),
+                            bExpected,
+                            sizeof(bExpected));
+
+        uint64_t cExpected []= {2};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(4).data(),
+                            cExpected,
+                            sizeof(cExpected));
+
+        uint64_t dExpected []= {2, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(5).data(),
+                            dExpected,
+                            sizeof(dExpected));
+
+        uint64_t eExpected []= {2, 2};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(8).data(),
+                            eExpected,
+                            sizeof(eExpected));
+
+        uint64_t fExpected []= {3, 2, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(14).data(),
+                            fExpected,
+                            sizeof(fExpected));
+
+        uint64_t gExpected []= {7, 3, 1, 1, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(25+36).data(),
+                            gExpected,
+                            sizeof(gExpected));
+    }
+    
+    void sumOfSquaresHelper(std::vector<std::vector<uint64_t>> results,
+                            std::vector<std::vector<uint64_t>> expected) {
+        for (size_t i = 0; i < expected.size(); i++) {
+            TS_ASSERT_SAME_DATA(results[i].data(),
+                                expected[i].data(),
+                                sizeof(expected[i].size()));
+        }
+    }
+    
+    void testSumOfSquaresAllSet(void)
+    {
+        std::vector<std::vector<uint64_t>> aExpected = {{}};
+        std::vector<std::vector<uint64_t>> aResult = toy_problems_cpp::sumOfSquaresAllSets(0);
+        sumOfSquaresHelper(aResult, aExpected);
+
+        std::vector<std::vector<uint64_t>> bExpected = {{1}};
+        std::vector<std::vector<uint64_t>> bResult = toy_problems_cpp::sumOfSquaresAllSets(1);
+        sumOfSquaresHelper(bResult, bExpected);
+        
+        std::vector<std::vector<uint64_t>> cExpected = {{1, 1, 1}};
+        std::vector<std::vector<uint64_t>> cResult = toy_problems_cpp::sumOfSquaresAllSets(3);
+        sumOfSquaresHelper(cResult, cExpected);
+        
+        std::vector<std::vector<uint64_t>> dExpected = {{2}, {1, 1, 1, 1}};
+        std::vector<std::vector<uint64_t>> dResult = toy_problems_cpp::sumOfSquaresAllSets(4);
+        sumOfSquaresHelper(dResult, dExpected);
+        
+        std::vector<std::vector<uint64_t>> eExpected = {{2, 1}, {1, 1, 1, 1, 2}};
+        std::vector<std::vector<uint64_t>> eResult = toy_problems_cpp::sumOfSquaresAllSets(5);
+        sumOfSquaresHelper(eResult, eExpected);
+        
+        std::vector<std::vector<uint64_t>> fExpected = {{2, 2}, {2, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1, 1}};
+        std::vector<std::vector<uint64_t>> fResult = toy_problems_cpp::sumOfSquaresAllSets(8);
+        sumOfSquaresHelper(fResult, fExpected);
+        
+        std::vector<std::vector<uint64_t>> gExpected = {{ 3, 2, 1 }, { 3, 1, 1, 1, 1, 1 }, { 2, 2, 2, 1, 1 }, { 2, 2, 1, 1, 1, 1, 1, 1 }, { 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }};
+        std::vector<std::vector<uint64_t>> gResult = toy_problems_cpp::sumOfSquaresAllSets(14);
+        sumOfSquaresHelper(gResult, gExpected);
+    }
+
+    
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif

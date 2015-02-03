@@ -59,5 +59,17 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testGreatestNonAdjacentWeights(); }
 } testDescription_suite_ToyProblemTestSuite_testGreatestNonAdjacentWeights;
 
+static class TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresGreatestSet : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresGreatestSet() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 188, "testSumOfSquaresGreatestSet" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testSumOfSquaresGreatestSet(); }
+} testDescription_suite_ToyProblemTestSuite_testSumOfSquaresGreatestSet;
+
+static class TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 238, "testSumOfSquaresAllSet" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testSumOfSquaresAllSet(); }
+} testDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";

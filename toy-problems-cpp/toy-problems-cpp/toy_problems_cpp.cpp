@@ -1,5 +1,7 @@
 #include "toy_problems_cpp.h"
 
+#include <cmath>
+
 std::vector<int> toy_problems_cpp::noOdds(std::vector<int> values) {
     std::vector<int> evens;
     for (int i = 0; i < values.size(); i++) {
@@ -73,7 +75,7 @@ uint64_t toy_problems_cpp::factorialDivision(uint64_t numerator, uint64_t denomi
     return result;
 }
 
-void recurse(std::size_t currentIndex,
+void recurseNonAdj(std::size_t currentIndex,
              std::vector<double> weights,
              std::vector<std::size_t>& currentIndices,
              double currentWeight,
@@ -93,8 +95,8 @@ void recurse(std::size_t currentIndex,
     currentIndices.push_back(currentIndex);
     currentWeight += weights[currentIndex];
     
-    // recurse into oneStep
-    recurse(currentIndex + 2,
+    // recurseNonAdj into oneStep
+    recurseNonAdj(currentIndex + 2,
             weights,
             currentIndices,
             currentWeight,
@@ -102,7 +104,7 @@ void recurse(std::size_t currentIndex,
             pHeaviestWeight);
     
     // recurse into twoStep
-    recurse(currentIndex + 3,
+    recurseNonAdj(currentIndex + 3,
             weights,
             currentIndices,
             currentWeight,
@@ -123,14 +125,14 @@ std::vector<size_t> toy_problems_cpp::greatestNonAdjacentWeights(std::vector<dou
     double *pHeaviestWeight = &heaviestWeight;
     
     
-    recurse(0,
+    recurseNonAdj(0,
             weights,
             currentIndices,
             currentWeight,
             heaviestIndexSet,
             pHeaviestWeight);
     // recurse at index 1;
-    recurse(1,
+    recurseNonAdj(1,
             weights,
             currentIndices,
             currentWeight,
@@ -138,5 +140,56 @@ std::vector<size_t> toy_problems_cpp::greatestNonAdjacentWeights(std::vector<dou
             pHeaviestWeight);
     
     return heaviestIndexSet;
+}
+
+void recurseGreatest(uint64_t value, std::vector<uint64_t>& list) {
+    if (value < 1) {
+        return;
+    }
+    
+    uint64_t biggestSqrt = (uint64_t)std::floor(std::sqrt(value));
+    list.push_back(biggestSqrt);
+    recurseGreatest(value - std::pow(biggestSqrt, 2), list);
+}
+
+std::vector<uint64_t> toy_problems_cpp::sumOfSquaresGreatestSet(uint64_t totalValue) {
+    std::vector<uint64_t> list;
+    
+    recurseGreatest(totalValue, list);
+    
+    return list;
+}
+
+void recurseAllSets(uint64_t value,
+                    uint64_t maxValue,
+                    std::vector<std::vector<uint64_t>>& setList,
+                    std::vector<uint64_t> set) { // by not passing by reference this copies the input array,
+                                                 // this is the desired effect in order to fill out the setList
+                                                 // with unique arrays.
+    if (value == 0) {
+        setList.push_back(set);
+        return;
+    }
+    
+    uint64_t biggestSqrt = std::floor(std::sqrt((double)value));
+    if (biggestSqrt > maxValue) {
+        biggestSqrt = maxValue;
+    }
+    
+    while (biggestSqrt > 0) {
+        set.push_back(biggestSqrt);
+        uint64_t remainder = value - (::pow(biggestSqrt, 2));
+        recurseAllSets(remainder, biggestSqrt, setList, set);
+        set.pop_back();
+        biggestSqrt--;
+    }
+}
+
+std::vector<std::vector<uint64_t>> toy_problems_cpp::sumOfSquaresAllSets(uint64_t totalValue) {
+    std::vector<std::vector<uint64_t>> setList;
+    std::vector<uint64_t> set;
+    recurseAllSets(totalValue, totalValue, setList, set);
+    
+    return setList;
 }
 
