@@ -17,11 +17,11 @@
 class toy_problems_cpp
 {
 	public:
-        static std::vector<int> noOdds(std::vector<int> values);
+        static std::vector<int> noOdds(const std::vector<int>& values);
         static bool isPowerOf4(int value);
         static bool nonRecursivePow4(int value);
         static uint64_t factorialDivision(uint64_t numerator, uint64_t denominator);
-        static std::vector<size_t> greatestNonAdjacentWeights(std::vector<double> weights);
+        static std::vector<size_t> greatestNonAdjacentWeights(const std::vector<double>& weights);
         static std::vector<uint64_t> sumOfSquaresGreatestSet(uint64_t totalValue);
         static std::vector<std::vector<uint64_t>> sumOfSquaresAllSets(uint64_t totalValue);
 };
