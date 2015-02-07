@@ -256,42 +256,47 @@ describe('greatestNonAdjacentWeights()', function () {
   });  
 });
 
-describe('sumOfSquaresGreatestSet()', function() {
+describe('sumOfSquaresShortestSet()', function() {
   it('exists', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet).to.be.a('function');
+    expect(toyProblemsJs.sumOfSquaresShortestSet).to.be.a('function');
   });
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(0)).to.eql([]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(0)).to.eql([]);
   });
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(1)).to.eql([1]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(1)).to.eql([1]);
   });
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(3)).to.eql([1, 1, 1]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(3)).to.eql([1, 1, 1]);
   });
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(4)).to.eql([2]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(4)).to.eql([2]);
   });
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(5)).to.eql([2, 1]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(5)).to.eql([2, 1]);
   });
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(8)).to.eql([2, 2]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(8)).to.eql([2, 2]);
   });  
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(14)).to.eql([3, 2, 1]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(14)).to.eql([3, 2, 1]);
   });  
 
   it('should return proper set', function() {
-    expect(toyProblemsJs.sumOfSquaresGreatestSet(25+36)).to.eql([7, 3, 1, 1, 1]);
+    expect(toyProblemsJs.sumOfSquaresShortestSet(25+36)).to.eql([6, 5]);
   });  
+
+  it('should return proper set', function() {
+    expect(toyProblemsJs.sumOfSquaresShortestSet(12)).to.eql([2, 2, 2]);
+  });  
+  
 });
 
 describe('sumOfSquaresAllSets()', function() {

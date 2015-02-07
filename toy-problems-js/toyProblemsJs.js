@@ -138,28 +138,35 @@ toyProblemsJs.prototype.greatestNonAdjacentWeights = function(vertices) {
 }
 
 
-//The question is sum of squares. 
-//Given an integer, 
-//return a list of numbers that when squared and summed equal the given integer.
-// the big assumption is that all the numbers returned will need to be integers
-toyProblemsJs.prototype.sumOfSquaresGreatestSet = function(totalInteger) {
+// problem: get the smallest set of numbers that when squared and
+// summed equal the totalValue
+toyProblemsJs.prototype.sumOfSquaresShortestSet = function(totalInteger) {
   var set = [];
+  var setOut = [];
 
-  var recurse = function(value) {
-    if (value === 0) {
-      return;
+  var recurse = function(value, maxValue, set) {
+    if (value === 0 && set.length > 0 && set.length < 5 ) {
+      if (setOut.length > set.length || setOut.length === 0)  {
+        setOut = set;
+      }
     }
 
     var biggestSqrt = Math.floor(Math.sqrt(value));
-    set.push(biggestSqrt);
-    var remainder = value - Math.pow(biggestSqrt, 2);
-    
-    recurse(remainder);
+    if (maxValue !== undefined && biggestSqrt > maxValue) {
+      biggestSqrt = maxValue;
+    }
+
+    while (biggestSqrt > 0) {
+      var copiedSet = set.slice();
+      copiedSet.push(biggestSqrt);
+      var remainder = value - (biggestSqrt * biggestSqrt);
+      recurse(remainder, biggestSqrt, copiedSet);
+      biggestSqrt--;
+    }
   }
 
-  recurse(totalInteger);
-
-  return set;
+  recurse(totalInteger, totalInteger, set);
+  return setOut;
 }
 
 toyProblemsJs.prototype.sumOfSquaresAllSets = function(totalInteger) {
@@ -194,15 +201,6 @@ toyProblemsJs.prototype.sumOfSquaresAllSets = function(totalInteger) {
   recurse(totalInteger)
   return setList;
 }
-
-
-
-
-
-
-
-
-
 
 
 if ( typeof module !== "undefined" ) {
