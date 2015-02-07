@@ -185,45 +185,50 @@ public:
                             sizeof(qExpected));
     }
     
-    void testSumOfSquaresGreatestSet(void)
+    void testSumOfSquaresShortestSet(void)
     {
-        std::vector<uint64_t> set = toy_problems_cpp::sumOfSquaresGreatestSet(0);
+        std::vector<uint64_t> set = toy_problems_cpp::sumOfSquaresShortestSet(0);
         TS_ASSERT_EQUALS(set.size(), 0);
         
         uint64_t aExpected []= {1};
-        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(1).data(),
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(1).data(),
                             aExpected,
                             sizeof(aExpected));
 
         uint64_t bExpected []= {1, 1, 1};
-        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(3).data(),
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(3).data(),
                             bExpected,
                             sizeof(bExpected));
 
         uint64_t cExpected []= {2};
-        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(4).data(),
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(4).data(),
                             cExpected,
                             sizeof(cExpected));
 
         uint64_t dExpected []= {2, 1};
-        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(5).data(),
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(5).data(),
                             dExpected,
                             sizeof(dExpected));
 
         uint64_t eExpected []= {2, 2};
-        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(8).data(),
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(8).data(),
                             eExpected,
                             sizeof(eExpected));
-
+        
         uint64_t fExpected []= {3, 2, 1};
-        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(14).data(),
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(14).data(),
                             fExpected,
                             sizeof(fExpected));
 
-        uint64_t gExpected []= {7, 3, 1, 1, 1};
-        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresGreatestSet(25+36).data(),
+        uint64_t gExpected []= {6, 5};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(25+36).data(),
                             gExpected,
                             sizeof(gExpected));
+        
+        uint64_t hExpected []= {2, 2, 2};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(12).data(),
+                            hExpected,
+                            sizeof(hExpected));
     }
     
     void sumOfSquaresHelper(std::vector<std::vector<uint64_t>> results,

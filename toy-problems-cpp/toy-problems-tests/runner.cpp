@@ -59,15 +59,15 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testGreatestNonAdjacentWeights(); }
 } testDescription_suite_ToyProblemTestSuite_testGreatestNonAdjacentWeights;
 
-static class TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresGreatestSet : public CxxTest::RealTestDescription {
+static class TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresShortestSet : public CxxTest::RealTestDescription {
 public:
- TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresGreatestSet() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 188, "testSumOfSquaresGreatestSet" ) {}
- void runTest() { suite_ToyProblemTestSuite.testSumOfSquaresGreatestSet(); }
-} testDescription_suite_ToyProblemTestSuite_testSumOfSquaresGreatestSet;
+ TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresShortestSet() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 188, "testSumOfSquaresShortestSet" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testSumOfSquaresShortestSet(); }
+} testDescription_suite_ToyProblemTestSuite_testSumOfSquaresShortestSet;
 
 static class TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet : public CxxTest::RealTestDescription {
 public:
- TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 238, "testSumOfSquaresAllSet" ) {}
+ TestDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 243, "testSumOfSquaresAllSet" ) {}
  void runTest() { suite_ToyProblemTestSuite.testSumOfSquaresAllSet(); }
 } testDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet;
 

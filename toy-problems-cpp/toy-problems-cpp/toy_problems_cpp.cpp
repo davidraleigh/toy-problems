@@ -63,6 +63,7 @@ bool toy_problems_cpp::isPowerOf4(int value)
     return toy_problems_cpp::isPowerOf4(value / 4);
 }
 
+ 
 uint64_t toy_problems_cpp::factorialDivision(uint64_t numerator, uint64_t denominator)
 {
     if (numerator < denominator)
@@ -119,7 +120,9 @@ void recurseNonAdj(std::size_t currentIndex,
     currentWeight -= weights[currentIndex];
 }
 
-
+// problem: get the indices of the set of numbers where the sum of weights
+// is the largest possible sum as long as no 2 summed weights are adjacent
+// assume that no weights can be negative
 std::vector<size_t> toy_problems_cpp::greatestNonAdjacentWeights(const std::vector<double>& weights)
 {
     std::vector<size_t> heaviestIndexSet;
@@ -144,23 +147,46 @@ std::vector<size_t> toy_problems_cpp::greatestNonAdjacentWeights(const std::vect
     return std::move(heaviestIndexSet);
 }
 
-void recurseGreatest(uint64_t value, std::vector<uint64_t>& list)
+void recurseShortestSet(uint64_t value,
+                        uint64_t maxValue,
+                        std::vector<uint64_t>& set,/*make this const ?*/
+                        std::vector<uint64_t>& setListOut)
 {
-    if (value < 1)
+    // by not passing by reference this copies the input array,
+    // this is the desired effect in order to fill out the setListOut
+    // with unique arrays.
+    // optimization that any number can be expressed as a combination of 4 squares
+    if (value == 0 && set.size() > 0 && set.size() < 5 )
+    {
+        if (setListOut.size() > set.size() || setListOut.size() == 0)
+            setListOut = set;
         return;
+    }
     
-    uint64_t biggestSqrt = (uint64_t)std::floor(std::sqrt(value));
-    list.push_back(biggestSqrt);
-    recurseGreatest(value - std::pow(biggestSqrt, 2), list);
+    uint64_t biggestSqrt = std::floor(std::sqrt((double)value));
+    if (biggestSqrt > maxValue)
+        biggestSqrt = maxValue;
+    
+    while (biggestSqrt > 0)
+    {
+        set.push_back(biggestSqrt);
+        uint64_t remainder = value - (::pow(biggestSqrt, 2));
+        recurseShortestSet(remainder, biggestSqrt, set, setListOut);
+        set.pop_back();
+        biggestSqrt--;
+    }
 }
 
-std::vector<uint64_t> toy_problems_cpp::sumOfSquaresGreatestSet(uint64_t totalValue)
+// problem: get the smallest set of numbers that when squared and
+// summed equal the totalValue
+std::vector<uint64_t> toy_problems_cpp::sumOfSquaresShortestSet(uint64_t totalValue)
 {
-    std::vector<uint64_t> list;
+    std::vector<uint64_t> setListOut;
+    std::vector<uint64_t> set;
     
-    recurseGreatest(totalValue, list);
+    recurseShortestSet(totalValue, totalValue, set, setListOut);
     
-    return std::move(list);
+    return std::move(setListOut);
 }
 
 void recurseAllSets(uint64_t value,
@@ -191,6 +217,8 @@ void recurseAllSets(uint64_t value,
     }
 }
 
+// problem: get all the unique sets of numbers that when squared and
+// summed equal the totalValue
 std::vector<std::vector<uint64_t>> toy_problems_cpp::sumOfSquaresAllSets(uint64_t totalValue)
 {
     std::vector<std::vector<uint64_t>> setListOut;
