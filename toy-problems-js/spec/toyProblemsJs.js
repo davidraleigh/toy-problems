@@ -339,6 +339,109 @@ describe('sumOfSquaresAllSets()', function() {
   });
 });
 
+describe('diagonalSum()', function() {
+  it('exists', function() {
+    expect(toyProblemsJs.diagonalSum).to.be.a('function');
+  });
+
+  it('should return a sum', function() {
+    var matrix = [[1, 0, 0, 0],
+                   [0, 1, 0, 0],
+                   [0, 0, 1, 0],
+                   [0, 0, 0, 1]];
+    expect(toyProblemsJs.diagonalSum(matrix)).to.equal(4);
+  });
+
+  it('should return a sum', function() {
+    var matrix = [[1, 0, 0, 0, 0 ],
+                   [0, 1, 0, 0, 0],
+                   [0, 0, 1, 0, 0],
+                   [0, 0, 0, 1, 0],
+                   [0, 0, 0, 1, 4]];
+    expect(toyProblemsJs.diagonalSum(matrix)).to.equal(8);
+  });  
+
+  it('should return a sum', function() {
+    var matrix = [[1]];
+    expect(toyProblemsJs.diagonalSum(matrix)).to.equal(1);
+  });    
+});
+
+describe('levenshtein distance', function() {
+  it('exists', function() {
+    expect(toyProblemsJs.levenshteinDistance).to.be.a('function');
+  });
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('apple', 'apple')).to.eql(0);
+  });
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('apple', 'xpple')).to.eql(1);
+  });
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('apple', 'xapple')).to.eql(1);
+  });
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('apple', 'pple')).to.eql(1);
+  });
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('apple', 'xxpple')).to.eql(2);
+  });  
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('apple', '')).to.eql(5);
+  });    
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('', 'apple')).to.eql(5);
+  });      
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('mappalef', 'apple')).to.eql(3);
+  });        
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('applemappalef', 'apple')).to.eql(8);
+  });    
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('123456789', '987654321')).to.eql(8);
+  });
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('1234', 'abcd')).to.eql(4);
+  });  
+
+  it('should return the edit count', function() {
+    expect(toyProblemsJs.levenshteinDistance('123456789', 'abcdefghi')).to.eql(9);
+  });  
+
+  // it('should return the edit count', function() {
+  //     expect(toyProblemsJs.levenshteinDistance('123456789123456789', 'abcdefghiabcdefghi')).to.eql(18);
+  // });
+
+  // it('should return the edit count', function() {
+  //     expect(toyProblemsJs.levenshteinDistance('Carthorse', 'Orchestra')).to.eql(8);
+  // });
+});
+
+// describe('funtion pointers()', function() {
+//   it('exists', function() {
+//     expect(toyProblemsJs.make_lazy).to.be.a('function');
+//   });
+
+//   it('should properly delay function call', function() {
+//     var add = function(first, second) {
+//       return first + second;
+//     };
+//     var func = toyProblemsJs.make_lazy(add, 1, 2);
+//     expect(func()).to.eql(3);
+//   });
+// });
 
 
 

@@ -85,12 +85,10 @@ toyProblemsJs.prototype.factorialDivision = function(n, d) {
   return factorialDivided;
 }
 
-//Given a set of vertices V that describes a path in a graph, 
-//with each vertex assigned a weight. Find a subset of V that 
-//maximizes the sum of vertex weights without any two vertices 
-//in that subset being adjacent.
-
-// this solution assumes no negative numbers (maybe that doesn't matter?)
+// Given a set of numeric values in an array, 
+// find a subset that maxmizes the sum of weights 
+// without any two weights coming from adjacent indices. 
+// Solution assumes all input values are positive.
 toyProblemsJs.prototype.greatestNonAdjacentWeights = function(vertices) {
   // input should be an array
   if (!Array.isArray(vertices)) {
@@ -201,6 +199,101 @@ toyProblemsJs.prototype.sumOfSquaresAllSets = function(totalInteger) {
   recurse(totalInteger)
   return setList;
 }
+
+// Deferring a function execution can sometimes save a lot of execution time
+// in our programs by postponing the execution to the latest possible instant
+// of time, when we're sure that the time spent while executing it is worth it.
+
+// Write a method make_lazy that takes in a function and the arguments to the
+// function and returns another function which when invoked, returns the result
+// of the original function invoked with the supplied arguments.
+
+// For example:
+
+// Given a function add
+
+// function add (a, b) {
+//   return a + b;
+// }
+// One could make it lazy as:
+
+// var lazy_value = make_lazy(add, 2, 3);
+// The expression does not get evaluated at the moment, but only when you invoke lazy_value as:
+
+// lazy_value() => 5
+// The above invokation then performs the sum.
+
+// Please note: The functions that are passed to make_lazy may take one or
+// more arguments and the number of arguments is not fixed.
+toyProblemsJs.prototype.make_lazy = function(func) {
+  var args = Array.prototype.slice.call(arguments, 2);
+  return function() {
+    func(1, 2);
+  }.bind(this);
+}
+
+// given 2 strings compute the minimum number of edits to change the first into the second
+// an edit is a deletion, a character swap or an insertion
+// worst case should be no more than 
+toyProblemsJs.prototype.levenshteinDistance = function(stringToEdit, stringGoal) {
+  var callCount = 0;
+  var recurse = function(eIndex, gIndex, count) {
+    callCount++;
+    if (eIndex < 0 || gIndex < 0) {
+      return count;
+    }
+
+    if (stringToEdit[eIndex] === stringGoal[gIndex]) {
+      count--;
+      return recurse(eIndex - 1, gIndex - 1, count);
+    } else {
+      var decrementedEdit = recurse(eIndex - 1, gIndex, count);
+      var decrementedGoal = recurse(eIndex, gIndex - 1, count);
+      var decrementedBoth = recurse(eIndex - 1, gIndex - 1, count);
+      if (decrementedEdit < decrementedBoth && decrementedEdit < decrementedGoal) {
+        return decrementedEdit;
+      } else if (decrementedBoth < decrementedGoal) {
+        return decrementedBoth;
+      } else {
+        return decrementedGoal;
+      }
+    }
+  }
+
+  var editCount = stringToEdit.length > stringGoal.length ? stringToEdit.length : stringGoal.length;
+  var count = recurse(stringToEdit.length - 1, stringGoal.length - 1, editCount);
+  console.log('edit count', editCount);
+  console.log('call count', callCount);
+  return count;
+}
+
+// Given a "square" array of subarrays, find the sum of values 
+// from the first value of the first array, the second value 
+// of the second array, the third value of the third array, and so on...
+// var exampleArray = [[1, 0, 0, 0],
+//                    [0, 1, 0, 0],
+//                    [0, 0, 1, 0],
+//                    [0, 0, 0, 1]]
+
+// diagonalSum(exampleArray) // => 4
+// var exampleArray = [[1, 0, 0, 0, 0],
+//                    [0, 1, 0, 0, 0],
+//                    [0, 0, 1, 0, 0],
+//                    [0, 0, 0, 1, 0],
+//                    [0, 0, 0, 0, 1]]
+
+// diagonalSum(exampleArray) // => 5
+toyProblemsJs.prototype.diagonalSum = function(matrix) {
+  return matrix.reduce(function(prev, current, index, array) { 
+    return prev + current[index]; 
+  }, 0);
+}
+
+
+
+
+
+
 
 
 if ( typeof module !== "undefined" ) {

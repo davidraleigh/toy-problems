@@ -11,6 +11,7 @@
 #define toy_problems_cpp_
 
 #include <vector>
+#include <string>
 /* The classes below are exported */
 #pragma GCC visibility push(default)
 
@@ -24,6 +25,7 @@ class toy_problems_cpp
         static std::vector<size_t> greatestNonAdjacentWeights(const std::vector<double>& weights);
         static std::vector<uint64_t> sumOfSquaresShortestSet(uint64_t totalValue);
         static std::vector<std::vector<uint64_t>> sumOfSquaresAllSets(uint64_t totalValue);
+        static int levenshteinDistance(std::string& stringToEdit, std::string& stringGoal);
 };
 
 #pragma GCC visibility pop

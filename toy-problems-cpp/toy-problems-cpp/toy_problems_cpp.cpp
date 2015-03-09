@@ -1,6 +1,8 @@
 #include "toy_problems_cpp.h"
 
 #include <cmath>
+#include <numeric>
+#include <algorithm>
 
 std::vector<int> toy_problems_cpp::noOdds(const std::vector<int>& values)
 {
@@ -226,4 +228,23 @@ std::vector<std::vector<uint64_t>> toy_problems_cpp::sumOfSquaresAllSets(uint64_
     recurseAllSets(totalValue, totalValue, set, setListOut);
     
     return std::move(setListOut);
+}
+
+int toy_problems_cpp::levenshteinDistance(std::string& A, std::string& B)
+{
+    std::vector<int> D(B.size() + 1);
+    std::iota(D.begin(), D.end(), 0);
+    
+    for (int i = 0; i <= A.size(); i++) {
+        int pre_i_1_j_1 = D[0]; // stores the value of the D at [i - 1][j - 1]
+        D[0] = i;
+        for (int j = 0; j <= B.size(); j++) {
+            int pre_i_1_j = D[j];  // stores the value of the D at [i - 1][j]
+            
+            D[j] = A[i - 1] == B[j - 1] ? pre_i_1_j_1 : 1 + std::min(pre_i_1_j_1, std::min(D[j - 1], D[j]));
+            pre_i_1_j_1 = pre_i_1_j;
+        }
+    }
+    
+    return D.back();
 }

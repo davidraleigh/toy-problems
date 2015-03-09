@@ -270,6 +270,17 @@ public:
         std::vector<std::vector<uint64_t>> gResult = toy_problems_cpp::sumOfSquaresAllSets(14);
         sumOfSquaresHelper(gResult, gExpected);
     }
+    void testLevenshteinDistance(void)
+    {
+        std::string goal1 = "apple";
+        std::string edit1 = "apple";
+        int count = toy_problems_cpp::levenshteinDistance(edit1, goal1);
+        TS_ASSERT_EQUALS(count, 0);
+        
+        std::string edit2 = "xpple";
+        count = toy_problems_cpp::levenshteinDistance(edit2, goal1);
+        TS_ASSERT_EQUALS(count, 1);
+    }
 
     
 };

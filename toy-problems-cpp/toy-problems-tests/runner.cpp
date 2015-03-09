@@ -71,5 +71,11 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testSumOfSquaresAllSet(); }
 } testDescription_suite_ToyProblemTestSuite_testSumOfSquaresAllSet;
 
+static class TestDescription_suite_ToyProblemTestSuite_testLevenshteinDistance : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testLevenshteinDistance() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 273, "testLevenshteinDistance" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testLevenshteinDistance(); }
+} testDescription_suite_ToyProblemTestSuite_testLevenshteinDistance;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
