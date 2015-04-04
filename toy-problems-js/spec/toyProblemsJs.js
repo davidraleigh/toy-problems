@@ -429,6 +429,79 @@ describe('levenshtein distance', function() {
   // });
 });
 
+describe('stringifyBinaryTree', function() {
+  it('no input null', function() {
+    expect(toyProblemsJs.stringifyBinaryTree()).to.equal(null);
+  });
+
+  it('array is null', function() {
+    expect(toyProblemsJs.stringifyBinaryTree([])).to.equal(null);
+  });
+
+  it('string is null', function() {
+    expect(toyProblemsJs.stringifyBinaryTree("")).to.equal(null);
+  });
+
+  it('null is null', function() {
+    expect(toyProblemsJs.stringifyBinaryTree(null)).to.equal(null);
+  });  
+
+  it('int is null', function() {
+    expect(toyProblemsJs.stringifyBinaryTree(8)).to.equal(null);
+  });
+
+  it('object is not null', function() {
+    expect(toyProblemsJs.stringifyBinaryTree({})).to.equal("{}");
+  });  
+
+  it('object has left', function() {
+    expect(toyProblemsJs.stringifyBinaryTree({left:2})).to.equal("{'left':2}");
+  });
+
+  it('object has right', function() {
+    expect(toyProblemsJs.stringifyBinaryTree({right:2})).to.equal("{'right':2}");
+  });
+
+  it('object has left and right and nested', function() {
+    expect(toyProblemsJs.stringifyBinaryTree({left:{left:2, right:4},right:8})).to.equal("{'left':{'left':2,'right':4},'right':8}");
+  });
+
+  it('object has left and right and nested', function() {
+    expect(toyProblemsJs.stringifyBinaryTree({left:{left:2, right:4},right:{left:25, right:{left:88, right:99}}})).to.equal("{'left':{'left':2,'right':4},'right':{'left':25,'right':{'left':88,'right':99}}}");
+  });  
+
+});
+
+describe('var objectifyString = function(str, allowableKeySet)', function() {
+  it('string without left bracket', function() {
+    expect(toyProblemsJs.objectifyString("}")).to.equal(null);
+  });
+
+  it('string without right bracket', function() {
+    expect(toyProblemsJs.objectifyString("{")).to.equal(null);
+  });
+
+  it('string with brackets out of order', function() {
+    expect(toyProblemsJs.objectifyString("}{")).to.equal(null);
+  });
+
+  it('simple string object', function() {
+    expect(toyProblemsJs.objectifyString("{}")).to.eql({});
+  });  
+
+  it('simple string object with spaces', function() {
+    expect(toyProblemsJs.objectifyString(" { } ")).to.eql({});
+  });
+
+  it('simple string object with spaces', function() {
+    expect(toyProblemsJs.binaryTreeifyString('{"left":2}')).to.eql({"left":2});
+  });
+
+  it('simple string object with spaces', function() {
+    expect(toyProblemsJs.binaryTreeifyString('{"left":{"left":2,"right":4},"right":{"left":25,"right":{"left":88,"right":99}}}')).to.eql({"left":{"left":2,"right":4},"right":{"left":25,"right":{"left":88,"right":99}}});
+  });
+});
+
 // describe('funtion pointers()', function() {
 //   it('exists', function() {
 //     expect(toyProblemsJs.make_lazy).to.be.a('function');

@@ -289,10 +289,126 @@ toyProblemsJs.prototype.diagonalSum = function(matrix) {
   }, 0);
 }
 
+// assumes all keys start and end with '
+toyProblemsJs.prototype.objectifyString = function(str, allowableKeySet) {
+  // remove all whitespace
+  str = str.replace(/ /g,'');
+  if (str[0] !== '{' || str[str.length - 1] !== '}') {
+    return null;
+  }
 
+  var obj = {};
+  var currentKey = "";
+  var currentValue = null;
+  var stringSep = "'";
 
+  var bReadKey = true;
+  var bReadValue = false;
+  var bReadString = false;
+  var bReadObject = false;
+  for (var i = 1; i < str.length; i++) {
+    if (str[i] === ',') {
+      continue;
+    }
 
+    if (bReadKey) {
+      if (str[i] === ":") {
+        bReadKey = false;
+        if (str[i + 1] === "{") {
+          bReadObject = true;
+        } else if (str[i + 1] === "'" || str[i + 1] === '"') {
+          bReadString = true;
+        } else {
+          bReadValue = true;
+        }
+      } else {
+        // maybe put in regular expression for allowable key characters?
+        if (str[i] === "'") {
+          continue;
+        }
+        currentKey += str[i];
+      }
+    } else if (bReadValue) {
+      if (str[i] === '}' || str[i] === ",") {
+        obj[currentKey] = currentValue;
+      }
+    } else if (bReadString) {
+      if (currentValue === null) {
+        stringSep = str[i];
+        currentValue = "";
+      } else if (str[i] === stringSep) {
+        obj[currentKey] = currentValue;
+        currentKey = "";
+        currentValue = null;
+        bReadValue = false;
+        bReadKey = true;
+      } else {
+        currentValue += str[i];
+      }
+    } else if (bReadObject) {
 
+    }
+  }
+  return obj;
+}
+
+var stringifyObject = function(obj) {
+  var output = "";
+  if (Array.isArray(obj)) {
+    output += "[";
+    if (obj.length > 0) {
+      output += stringifyObject(obj[0]);
+      // in order to avoid a comma check we don't use foreach
+      for (var i = 1; i < obj.length; i++) {
+        output += "," + stringifyObject(obj[i]);
+      }
+    }
+    output += "]";
+  } else if (typeof obj === "string" ||
+             typeof obj !== "object") {
+    var str = "" + obj;
+    output += str;
+  } else {
+    output += "{";
+    var bComma = false;
+    for (var key in obj) {
+      if (bComma) {
+        output += ",";
+      }
+      output += "'" + key + "':";
+      output += stringifyObject(obj[key]);
+      bComma = true;
+    }
+    output += "}";
+  }
+  return output;
+}
+
+// Write a function that stringifies a binary tree. 
+// JSON.stringify is cheating. Then write a function 
+// that parses that string (again native parse JSON is cheating)
+toyProblemsJs.prototype.stringifyBinaryTree = function(binaryTree) {
+  if (binaryTree === undefined || 
+    Array.isArray(binaryTree) || 
+    binaryTree === null ||
+    typeof binaryTree !== 'object')
+    return null;
+
+  return stringifyObject(binaryTree);
+}
+
+toyProblemsJs.prototype.binaryTreeifyString = function(binaryTreeString) {
+  // remove all whitespace
+  binaryTreeString = binaryTreeString.replace(/ /g,'');
+  if (binaryTreeString[0] !== '{' || binaryTreeString[binaryTreeString.length - 1] !== '}') {
+    return null;
+  }
+  console.log(binaryTreeString);
+
+  var stuff = JSON.parse(binaryTreeString);
+  console.log(stuff);
+  return stuff;
+}
 
 
 
