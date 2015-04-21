@@ -502,6 +502,68 @@ describe('var objectifyString = function(str, allowableKeySet)', function() {
   });
 });
 
+describe('function fibonacci', function() {
+  it('exists', function() {
+    expect(toyProblemsJs.fibonacci).to.be.a('function');
+  });
+
+  it('first two of zero based', function() {
+    expect(toyProblemsJs.fibonacci(0, 2, false)).to.eql([0, 1]);
+  });
+
+  it('first two of one based', function() {
+    expect(toyProblemsJs.fibonacci(0, 2, true)).to.eql([1, 1]);
+  });
+
+  it('first two of zero based', function() {
+    // 0 1 1 2 3 5 8 13 21
+    expect(toyProblemsJs.fibonacci(4, 7, false)).to.eql([3, 5, 8]);
+  });
+
+  it('first two of zero based', function() {
+    // 0 1 1 2 3 5 8 13 21
+    expect(toyProblemsJs.fibonacci(4, 7, true)).to.eql([5, 8, 13]);
+  });
+
+  it('first two of one based', function() {
+    expect(toyProblemsJs.fibonacci(0, 2, true)).to.eql([1, 1]);
+  });  
+});
+
+describe('function fibonacci', function() {
+  it('exists', function() {
+    expect(toyProblemsJs.fibonacciAtIndex).to.be.a('function');
+  });
+
+  it('test 0', function() {
+    expect(toyProblemsJs.fibonacciAtIndex(0)).to.eql(0);
+  });
+
+  it('test 1', function() {
+    expect(toyProblemsJs.fibonacciAtIndex(1)).to.eql(1);
+  });  
+
+  it('test 2', function() {
+    expect(toyProblemsJs.fibonacciAtIndex(2)).to.eql(1);
+  });    
+
+  it('test 3', function() {
+    expect(toyProblemsJs.fibonacciAtIndex(3)).to.eql(2);
+  });      
+
+  it('test 4', function() {
+    expect(toyProblemsJs.fibonacciAtIndex(4)).to.eql(3);
+  });        
+
+  it('test 5', function() {
+    expect(toyProblemsJs.fibonacciAtIndex(5)).to.eql(5);
+  });          
+
+  it('test 6', function() {
+    expect(toyProblemsJs.fibonacciAtIndex(6)).to.eql(8);
+  });            
+});
+
 // describe('funtion pointers()', function() {
 //   it('exists', function() {
 //     expect(toyProblemsJs.make_lazy).to.be.a('function');
@@ -511,8 +573,8 @@ describe('var objectifyString = function(str, allowableKeySet)', function() {
 //     var add = function(first, second) {
 //       return first + second;
 //     };
-//     var func = toyProblemsJs.make_lazy(add, 1, 2);
-//     expect(func()).to.eql(3);
+//     var test = toyProblemsJs.make_lazy(add, 1, 2);
+//     expect(test()).to.eql(3);
 //   });
 // });
 

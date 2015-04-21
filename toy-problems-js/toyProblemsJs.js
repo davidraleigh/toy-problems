@@ -1,9 +1,20 @@
 /*! toyProblemsJs v0.0.0 - MIT license */
 'use strict';
+var goldenRatio = 1.6180339887499;
+var sqrt5 = Math.sqrt(5);
 
 var toyProblemsJs = function() {
-
 }
+
+
+// toyProblemsJs.prototype.fibonacciaAtIndex = function(index) {
+//   return 0;//Math.round((Math.pow(goldenRatio, index) - Math.pow(-goldenRatio, -index)) / sqrt5);
+// }
+
+toyProblemsJs.prototype.fibonacciAtIndex = function(index) {
+  return Math.round((Math.pow(goldenRatio, index) - Math.pow(-goldenRatio, -index)) / sqrt5);
+}
+
 
 toyProblemsJs.prototype.noOdds = function(array) {
   var results = [];
@@ -408,6 +419,24 @@ toyProblemsJs.prototype.binaryTreeifyString = function(binaryTreeString) {
   var stuff = JSON.parse(binaryTreeString);
   console.log(stuff);
   return stuff;
+}
+
+
+toyProblemsJs.prototype.fibonacci = function(startInclusive, endExclusive, bOnesStart) {
+  bOnesStart = bOnesStart || false;
+  var results = [];
+
+  if (bOnesStart) {
+    startInclusive += 1;
+    endExclusive += 1;
+  }
+
+  var index = startInclusive;
+  while (index < endExclusive) {
+    results.push(this.fibonacciAtIndex(index++));
+  }
+  
+  return results;
 }
 
 
