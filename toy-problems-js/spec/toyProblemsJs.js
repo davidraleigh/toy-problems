@@ -502,31 +502,31 @@ describe('var objectifyString = function(str, allowableKeySet)', function() {
   });
 });
 
-describe('function fibonacci', function() {
+describe('function fibonacciSequence', function() {
   it('exists', function() {
-    expect(toyProblemsJs.fibonacci).to.be.a('function');
+    expect(toyProblemsJs.fibonacciSequence).to.be.a('function');
   });
 
   it('first two of zero based', function() {
-    expect(toyProblemsJs.fibonacci(0, 2, false)).to.eql([0, 1]);
+    expect(toyProblemsJs.fibonacciSequence(0, 2, false)).to.eql([0, 1]);
   });
 
   it('first two of one based', function() {
-    expect(toyProblemsJs.fibonacci(0, 2, true)).to.eql([1, 1]);
+    expect(toyProblemsJs.fibonacciSequence(0, 2, true)).to.eql([1, 1]);
   });
 
   it('first two of zero based', function() {
     // 0 1 1 2 3 5 8 13 21
-    expect(toyProblemsJs.fibonacci(4, 7, false)).to.eql([3, 5, 8]);
+    expect(toyProblemsJs.fibonacciSequence(4, 7, false)).to.eql([3, 5, 8]);
   });
 
   it('first two of zero based', function() {
     // 0 1 1 2 3 5 8 13 21
-    expect(toyProblemsJs.fibonacci(4, 7, true)).to.eql([5, 8, 13]);
+    expect(toyProblemsJs.fibonacciSequence(4, 7, true)).to.eql([5, 8, 13]);
   });
 
   it('first two of one based', function() {
-    expect(toyProblemsJs.fibonacci(0, 2, true)).to.eql([1, 1]);
+    expect(toyProblemsJs.fibonacciSequence(0, 2, true)).to.eql([1, 1]);
   });  
 });
 

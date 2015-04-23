@@ -1,19 +1,9 @@
 /*! toyProblemsJs v0.0.0 - MIT license */
 'use strict';
-var goldenRatio = 1.6180339887499;
-var sqrt5 = Math.sqrt(5);
 
 var toyProblemsJs = function() {
 }
 
-
-// toyProblemsJs.prototype.fibonacciaAtIndex = function(index) {
-//   return 0;//Math.round((Math.pow(goldenRatio, index) - Math.pow(-goldenRatio, -index)) / sqrt5);
-// }
-
-toyProblemsJs.prototype.fibonacciAtIndex = function(index) {
-  return Math.round((Math.pow(goldenRatio, index) - Math.pow(-goldenRatio, -index)) / sqrt5);
-}
 
 
 toyProblemsJs.prototype.noOdds = function(array) {
@@ -421,8 +411,14 @@ toyProblemsJs.prototype.binaryTreeifyString = function(binaryTreeString) {
   return stuff;
 }
 
+var goldenRatio = 1.6180339887499;
+var sqrt5 = Math.sqrt(5);
+toyProblemsJs.prototype.fibonacciAtIndex = function(index) {
+  return Math.round((Math.pow(goldenRatio, index) - Math.pow(-goldenRatio, -index)) / sqrt5);
+}
 
-toyProblemsJs.prototype.fibonacci = function(startInclusive, endExclusive, bOnesStart) {
+// get a sequence of fibonacci numbers from the start and end indices.
+toyProblemsJs.prototype.fibonacciSequence = function(startInclusive, endExclusive, bOnesStart) {
   bOnesStart = bOnesStart || false;
   var results = [];
 
