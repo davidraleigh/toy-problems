@@ -281,6 +281,21 @@ public:
         count = toy_problems_cpp::levenshteinDistance(edit2, goal1);
         TS_ASSERT_EQUALS(count, 1);
     }
+    
+    void testFibonacciaSequence(void)
+    {
+        unsigned int aExpected [] = {0, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::fibonacciSequence(0, 2, false).data(), aExpected, sizeof(aExpected));
+        
+        unsigned int bExpected [] = {1, 1};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::fibonacciSequence(0, 2, true).data(), bExpected, sizeof(bExpected));
+        
+        unsigned int cExpected [] = {3, 5, 8};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::fibonacciSequence(4, 7, false).data(), cExpected, sizeof(cExpected));
+        
+        unsigned int dExpected [] = {5, 8, 13};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::fibonacciSequence(4, 7, true).data(), dExpected, sizeof(dExpected));
+    }
 
     
 };

@@ -77,5 +77,11 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testLevenshteinDistance(); }
 } testDescription_suite_ToyProblemTestSuite_testLevenshteinDistance;
 
+static class TestDescription_suite_ToyProblemTestSuite_testFibonacciaSequence : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testFibonacciaSequence() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 285, "testFibonacciaSequence" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testFibonacciaSequence(); }
+} testDescription_suite_ToyProblemTestSuite_testFibonacciaSequence;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";

@@ -248,3 +248,27 @@ int toy_problems_cpp::levenshteinDistance(std::string& A, std::string& B)
     
     return D.back();
 }
+
+#define goldenRatio 1.6180339887499
+#define sqrt5 2.23606797749979
+
+std::vector<unsigned int> toy_problems_cpp::fibonacciSequence(unsigned int startInclusive, unsigned int endExclusive, bool bOnesStart)
+{
+    std::vector<unsigned int> results;
+    
+    if (bOnesStart) {
+        startInclusive += 1;
+        endExclusive += 1;
+    }
+    
+    unsigned int index = startInclusive;
+    
+    do
+    {
+        // well this is weird. you have to cast from unsigned int to int for power to work. must be some crazy shit I don't understand about unsigned ints being treated like a float and then the value actually being a non-integer float
+        unsigned int fibNum = (unsigned int)std::round((std::pow(goldenRatio, index) - std::pow(-goldenRatio, (int)-index)) / sqrt5);
+        results.push_back(fibNum);
+    } while (index++ < endExclusive);
+    
+    return results;
+}
