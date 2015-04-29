@@ -564,6 +564,167 @@ describe('function fibonacci', function() {
   });            
 });
 
+describe('function isPrime', function() {
+
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(4)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(0)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(1)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(2)).to.eql(true);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(3)).to.eql(true);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(5)).to.eql(true);
+  });
+
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(6)).to.eql(false);
+  });
+  it('test isPrime', function() {
+  expect(toyProblemsJs.isPrime(7)).to.eql(true); //true
+      });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(8)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(9)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(10)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(11)).to.eql(true);  //true
+  });
+
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(12)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(13)).to.eql(true); //true
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(14)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(15)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(16)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(17)).to.eql(true); //true
+  });
+
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(18)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(19)).to.eql(true); //true
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(20)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(21)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(22)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(23)).to.eql(true); //true
+  });
+
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(24)).to.eql(false);
+  });
+
+  // pattern changes here because 5 squared?
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(25)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(26)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(27)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(28)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(29)).to.eql(true);  //true
+  });
+  
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(30)).to.eql(false);
+  });
+  // pattern changes here because 5 squared?
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(31)).to.eql(true); // true
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(32)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(33)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(34)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(35)).to.eql(false);
+  });
+  
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(36)).to.eql(false);
+  });
+  // pattern changes here because 5 squared?
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(37)).to.eql(true); // true
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(38)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(39)).to.eql(false);
+  });
+  it('test isPrime', function() {
+    expect(toyProblemsJs.isPrime(40)).to.eql(false);
+  });
+  it('test isPrime', function() {
+  expect(toyProblemsJs.isPrime(41)).to.eql(true); // true
+});
+
+    });
+    
+    // void testGetPrimes(void)
+    // {
+    //     unsigned int emptyExpected [] = {};
+    //     TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 3).data(), emptyExpected, sizeof(emptyExpected));
+        
+    //     unsigned int aExpected [] = {2, 3, 5};
+    //     TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 6).data(), aExpected, sizeof(aExpected));
+        
+    //     unsigned int bExpected [] = {2, 3};
+    //     TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 5).data(), bExpected, sizeof(bExpected));
+        
+    //     unsigned int cExpected [] = {2};
+    //     TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 3).data(), cExpected, sizeof(cExpected));
+        
+    //     unsigned int dExpected [] = {};
+    //     TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(4, 5).data(), dExpected, sizeof(dExpected));
+        
+    //     unsigned int eExpected [] = {7, 11, 13, 17, 19, 23};
+    //     TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(6, 29).data(), eExpected, sizeof(eExpected));
+    // }
 // describe('funtion pointers()', function() {
 //   it('exists', function() {
 //     expect(toyProblemsJs.make_lazy).to.be.a('function');

@@ -272,3 +272,45 @@ std::vector<unsigned int> toy_problems_cpp::fibonacciSequence(unsigned int start
     
     return results;
 }
+
+bool toy_problems_cpp::isPrime(unsigned int input){
+    
+    if (input < 2)
+        return false;
+    if (input == 2 || input == 3 || input == 5)
+        return true;
+    if (input % 2 == 0 || input % 3 == 0)
+        return false;
+
+    
+    unsigned int divisor = 5;
+    
+    bool bigStep = false;
+    unsigned int halfInput = input / 2;
+    // opportunity for optimization
+    while (divisor < halfInput) {
+        if (input % divisor == 0)
+            return false;
+        if (bigStep) {
+            divisor += 4;
+            bigStep = false;
+        } else {
+            divisor += 2;
+            bigStep = true;
+        }
+    }
+
+    return true;
+}
+
+std::vector<unsigned int> toy_problems_cpp::getPrimes(unsigned int startInlusivish, unsigned int endExclusive){
+    std::vector<unsigned int> results;
+    
+    while (startInlusivish < endExclusive) {
+        if (toy_problems_cpp::isPrime(startInlusivish))
+            results.push_back(startInlusivish);
+        startInlusivish++;
+    }
+    
+    return results;
+}

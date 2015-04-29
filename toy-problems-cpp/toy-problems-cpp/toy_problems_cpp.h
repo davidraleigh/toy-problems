@@ -27,6 +27,8 @@ class toy_problems_cpp
         static std::vector<std::vector<uint64_t>> sumOfSquaresAllSets(uint64_t totalValue);
         static int levenshteinDistance(std::string& stringToEdit, std::string& stringGoal);
         static std::vector<unsigned int> fibonacciSequence(unsigned int startInclusive, unsigned int endExclusive, bool bOnesStart);
+        static bool isPrime(unsigned int input);
+        static std::vector<unsigned int> getPrimes(unsigned int startInlusivish, unsigned int endExclusive);
 };
 
 #pragma GCC visibility pop

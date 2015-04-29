@@ -435,7 +435,32 @@ toyProblemsJs.prototype.fibonacciSequence = function(startInclusive, endExclusiv
   return results;
 }
 
+toyProblemsJs.prototype.isPrime = function(input) {
+  if (input < 2) 
+    return false;
+  if (input === 2 || input === 3 || input === 5) 
+    return true;
+  if (input % 2 === 0 || input % 3 === 0) 
+    return false;
 
+  var divisor = 5;
+  var bBigOffset = false;
+  var halfInput = Math.floor(input / 2); 
+  while (divisor < halfInput) {
+    if (input % divisor === 0)
+      return false;
+    
+    if (bBigOffset) {
+      divisor += 4;
+      bBigOffset = false
+    } else {
+      divisor += 2;
+      bBigOffset = true;
+    }
+  }
+
+  return true;
+}
 
 if ( typeof module !== "undefined" ) {
   module.exports = toyProblemsJs;

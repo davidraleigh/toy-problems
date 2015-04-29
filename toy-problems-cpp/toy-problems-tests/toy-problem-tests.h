@@ -297,7 +297,82 @@ public:
         TS_ASSERT_SAME_DATA(toy_problems_cpp::fibonacciSequence(4, 7, true).data(), dExpected, sizeof(dExpected));
     }
 
+    void testIsPrime(void)
+    {
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(4), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(0), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(1), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(2), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(3), true);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(5), true);
+        
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(6), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(7), true); //true
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(8), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(9), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(10), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(11), true);  //true
+
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(12), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(13), true); //true
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(14), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(15), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(16), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(17), true); //true
+        
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(18), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(19), true); //true
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(20), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(21), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(22), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(23), true); //true
+        
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(24), false);
+        // pattern changes here because 5 squared?
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(25), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(26), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(27), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(28), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(29), true);  //true
+        
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(30), false);
+        // pattern changes here because 5 squared?
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(31), true); // true
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(32), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(33), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(34), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(35), false);
+        
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(36), false);
+        // pattern changes here because 5 squared?
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(37), true); // true
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(38), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(39), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(40), false);
+        TS_ASSERT_EQUALS(toy_problems_cpp::isPrime(41), true); // true
+
+    }
     
+    void testGetPrimes(void)
+    {
+        unsigned int emptyExpected [] = {};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 3).data(), emptyExpected, sizeof(emptyExpected));
+        
+        unsigned int aExpected [] = {2, 3, 5};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 6).data(), aExpected, sizeof(aExpected));
+        
+        unsigned int bExpected [] = {2, 3};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 5).data(), bExpected, sizeof(bExpected));
+        
+        unsigned int cExpected [] = {2};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(2, 3).data(), cExpected, sizeof(cExpected));
+        
+        unsigned int dExpected [] = {};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(4, 5).data(), dExpected, sizeof(dExpected));
+        
+        unsigned int eExpected [] = {7, 11, 13, 17, 19, 23};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::getPrimes(6, 29).data(), eExpected, sizeof(eExpected));
+    }
 };
 
 

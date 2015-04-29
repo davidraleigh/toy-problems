@@ -83,5 +83,17 @@ public:
  void runTest() { suite_ToyProblemTestSuite.testFibonacciaSequence(); }
 } testDescription_suite_ToyProblemTestSuite_testFibonacciaSequence;
 
+static class TestDescription_suite_ToyProblemTestSuite_testIsPrime : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testIsPrime() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 300, "testIsPrime" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testIsPrime(); }
+} testDescription_suite_ToyProblemTestSuite_testIsPrime;
+
+static class TestDescription_suite_ToyProblemTestSuite_testGetPrimes : public CxxTest::RealTestDescription {
+public:
+ TestDescription_suite_ToyProblemTestSuite_testGetPrimes() : CxxTest::RealTestDescription( Tests_ToyProblemTestSuite, suiteDescription_ToyProblemTestSuite, 356, "testGetPrimes" ) {}
+ void runTest() { suite_ToyProblemTestSuite.testGetPrimes(); }
+} testDescription_suite_ToyProblemTestSuite_testGetPrimes;
+
 #include <cxxtest/Root.cpp>
 const char* CxxTest::RealWorldDescription::_worldName = "cxxtest";
