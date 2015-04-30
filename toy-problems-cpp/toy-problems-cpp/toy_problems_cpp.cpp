@@ -4,6 +4,10 @@
 #include <numeric>
 #include <algorithm>
 
+toy_problems_cpp::toy_problems_cpp(){
+    
+}
+
 std::vector<int> toy_problems_cpp::noOdds(const std::vector<int>& values)
 {
     std::vector<int> evens;

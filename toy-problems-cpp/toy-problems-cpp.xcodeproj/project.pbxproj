@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8700C00E1AF282D60058971A /* CoinSums.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8700C00C1AF282D60058971A /* CoinSums.cpp */; };
+		8700C00F1AF282D60058971A /* CoinSums.h in Headers */ = {isa = PBXBuildFile; fileRef = 8700C00D1AF282D60058971A /* CoinSums.h */; };
 		87F3D0871A718BA700037662 /* toy_problems_cpp.h in Headers */ = {isa = PBXBuildFile; fileRef = 87F3D0861A718BA700037662 /* toy_problems_cpp.h */; };
 		87F3D0891A718BA700037662 /* toy_problems_cppPriv.h in Headers */ = {isa = PBXBuildFile; fileRef = 87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */; };
 		87F3D08B1A718BA700037662 /* toy_problems_cpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 87F3D08A1A718BA700037662 /* toy_problems_cpp.cpp */; };
@@ -37,6 +39,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8700C00C1AF282D60058971A /* CoinSums.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CoinSums.cpp; sourceTree = "<group>"; };
+		8700C00D1AF282D60058971A /* CoinSums.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoinSums.h; sourceTree = "<group>"; };
 		87F3D0831A718BA700037662 /* libtoy-problems-cpp.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = "libtoy-problems-cpp.dylib"; sourceTree = BUILT_PRODUCTS_DIR; };
 		87F3D0861A718BA700037662 /* toy_problems_cpp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = toy_problems_cpp.h; sourceTree = "<group>"; };
 		87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = toy_problems_cppPriv.h; sourceTree = "<group>"; };
@@ -86,9 +90,11 @@
 		87F3D0851A718BA700037662 /* toy-problems-cpp */ = {
 			isa = PBXGroup;
 			children = (
+				8700C00D1AF282D60058971A /* CoinSums.h */,
 				87F3D0861A718BA700037662 /* toy_problems_cpp.h */,
-				87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */,
+				8700C00C1AF282D60058971A /* CoinSums.cpp */,
 				87F3D08A1A718BA700037662 /* toy_problems_cpp.cpp */,
+				87F3D0881A718BA700037662 /* toy_problems_cppPriv.h */,
 			);
 			path = "toy-problems-cpp";
 			sourceTree = "<group>";
@@ -110,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87F3D0891A718BA700037662 /* toy_problems_cppPriv.h in Headers */,
+				8700C00F1AF282D60058971A /* CoinSums.h in Headers */,
 				87F3D0871A718BA700037662 /* toy_problems_cpp.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87F3D08B1A718BA700037662 /* toy_problems_cpp.cpp in Sources */,
+				8700C00E1AF282D60058971A /* CoinSums.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
