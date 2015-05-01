@@ -147,7 +147,10 @@ toyProblemsJs.prototype.sumOfSquaresShortestSet = function(totalInteger) {
     if (value === 0 && set.length > 0 && set.length < 5 ) {
       if (setOut.length > set.length || setOut.length === 0)  {
         setOut = set;
+        return;
       }
+    } else if (set.length === 4) {
+      return;
     }
 
     var biggestSqrt = Math.floor(Math.sqrt(value));
