@@ -167,6 +167,8 @@ void recurseShortestSet(uint64_t value,
         if (setListOut.size() > set.size() || setListOut.size() == 0)
             setListOut = set;
         return;
+    } else if (set.size() == 4) {
+        return;
     }
     
     uint64_t biggestSqrt = std::floor(std::sqrt((double)value));

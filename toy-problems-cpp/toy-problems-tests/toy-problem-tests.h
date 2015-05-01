@@ -10,6 +10,10 @@
 #define toy_problems_cpp_toy_problem_tests_h
 
 #include <cxxtest/TestSuite.h>
+#include <chrono>
+#include <random>
+#include <iostream>
+
 
 #include "toy_problems_cpp.h"
 #include "CoinSums.h"
@@ -231,6 +235,22 @@ public:
         TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(12).data(),
                             hExpected,
                             sizeof(hExpected));
+        
+        uint64_t kExpected [] = {12, 12, 8};
+        TS_ASSERT_SAME_DATA(toy_problems_cpp::sumOfSquaresShortestSet(352).data(), kExpected, sizeof(kExpected));
+        
+        int count = 10;
+        unsigned int seed = std::chrono::system_clock::now().time_since_epoch().count();
+        std::mt19937 generator (seed);
+        std::uniform_int_distribution<int> distribution(1, 10000);
+        std::string result = "\nThe seed sum of squares seed is: " + std::to_string (seed) + "\n";
+        TS_TRACE(result.c_str());
+        std::cout << result.c_str();
+        while (count-- > 0) {
+            int input = distribution(generator);
+            std::vector<uint64_t> numbers = toy_problems_cpp::sumOfSquaresShortestSet(input);
+            TS_ASSERT_LESS_THAN(numbers.size(), 5);
+        }
     }
     
     void sumOfSquaresHelper(std::vector<std::vector<uint64_t>> results,
@@ -272,6 +292,7 @@ public:
         std::vector<std::vector<uint64_t>> gResult = toy_problems_cpp::sumOfSquaresAllSets(14);
         sumOfSquaresHelper(gResult, gExpected);
     }
+    
     void testLevenshteinDistance(void)
     {
         std::string goal1 = "apple";
@@ -377,12 +398,10 @@ public:
     }
     
     void testCoinSums(void)
-    {             
+    {
         std::vector<unsigned int> coinSet1 = {200, 100, 50, 20, 10, 5, 2, 1}; //, 2, 5, 10, 20, 50, 100, 200
         CoinSums coin(coinSet1);
         std::vector<unsigned int> results1 = coin.GetCoinSum(3.00);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(.01), 1);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(.02), 2);
         TS_ASSERT_EQUALS(coin.GetVariationCount(.01), 1);
         TS_ASSERT_EQUALS(coin.GetVariationCount(.02), 2);
         TS_ASSERT_EQUALS(coin.GetVariationCount(.03), 2);
@@ -482,106 +501,36 @@ public:
         TS_ASSERT_EQUALS(coin.GetVariationCount(.97), 4072);
         TS_ASSERT_EQUALS(coin.GetVariationCount(.98), 4219);
         TS_ASSERT_EQUALS(coin.GetVariationCount(.99), 4366);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.00),4563);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.01), 4710);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.02), 4907);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.03), 5054);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.04), 5251);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.05), 5448);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.19), 8702);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.20), 9038);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.21), 9297);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.22), 9633);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.23), 9892);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.24), 10228);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.25), 10564);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.42), 17523);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.53), 23630);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.54), 24305);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.57), 26330);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.65), 32366);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.66), 33200);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.67), 34034);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.79), 45538);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.86), 53775);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.87), 55014);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.93), 62952);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.94), 64443);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(1.99), 71898);
         TS_ASSERT_EQUALS(coin.GetVariationCount(2.00), 73682);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.01), 75173);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.02), 76957);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.03), 78448);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.04), 80232);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.05), 82016);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.06), 83800);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.07), 85584);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.08), 87368);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.09), 89152);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.10), 91273);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.11), 93057);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.12), 95178);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.13), 96962);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.14), 99083);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.15), 101204);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.16), 103325);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.17), 105446);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.18), 107567);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.19), 109688);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.20), 112197);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.21), 114318);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.22), 116827);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.23), 118948);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.24), 121457);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.25), 123966);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.26), 126475);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.27), 128984);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.28), 131493);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.29), 134002);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.30), 136953);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.31), 139462);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.32), 142413);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.33), 144922);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.34), 147873);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.35), 150824);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.36), 153775);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.37), 156726);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.38), 159677);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.39), 162628);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.40), 166082);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.41), 169033);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.42), 172487);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.43), 175438);
         TS_ASSERT_EQUALS(coin.GetVariationCount(2.44), 178892);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.45), 182346);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.46), 185800);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.47), 189254);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.48), 192708);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.49), 196162);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.50), 200187);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.51), 203641);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.52), 207666);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.53), 211120);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.54), 215145);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.55), 219170);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.56), 223195);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.57), 227220);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.58), 231245);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.59), 235270);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.60), 239941);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.61), 243966);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.62), 248637);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.63), 252662);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.64), 257333);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.65), 262004);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.66), 266675);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.67), 271346);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.68), 276017);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.69), 280688);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.70), 286087);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.71), 290758);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.72), 296157);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.73), 300828);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.74), 306227);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.75), 311626);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.76), 317025);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.77), 322424);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.78), 327823);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.79), 333222);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.80), 339438);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.81), 344837);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.82), 351053);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.83), 356452);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.84), 362668);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.85), 368884);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.86), 375100);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.87), 381316);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.88), 387532);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.89), 393748);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.90), 400877);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.91), 407093);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.92), 414222);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.93), 420438);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.94), 427567);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.95), 434696);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.96), 441825);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.97), 448954);
-        TS_ASSERT_EQUALS(coin.GetVariationCount(2.98), 456083);
         TS_ASSERT_EQUALS(coin.GetVariationCount(2.99), 463212);
+        TS_ASSERT_EQUALS(coin.GetVariationCount(3.35), 805266);
     }
 };
 
