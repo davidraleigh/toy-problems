@@ -2,8 +2,19 @@
 'use strict';
 
 var toyProblemsJs = function() {
-}
+};
 
+
+toyProblemsJs.prototype.alphabetPosition = function(text) {
+  text = text.toLowerCase();
+  var result = '';
+  for (var i = 0; i < text.length; i++) {
+    var num = text[i].charCodeAt(0) - 96;
+    if (num >= 1 && num <= 32)
+      result += num + ' ';
+  }
+  return result.trim();
+};
 
 
 toyProblemsJs.prototype.noOdds = function(array) {
@@ -14,7 +25,7 @@ toyProblemsJs.prototype.noOdds = function(array) {
     }
   }
   return results;
-}
+};
 
 toyProblemsJs.prototype.isPowerOf4 = function(number) {
   if (Number(number) !== number || number % 1 !== 0) {
@@ -24,7 +35,7 @@ toyProblemsJs.prototype.isPowerOf4 = function(number) {
   if (number % 4 !== 0) {
     return false;
   } else if (number / 4 === 1) {
-    return true
+    return true;
   }
 
   return toyProblemsJs.prototype.isPowerOf4(number / 4);
@@ -44,7 +55,7 @@ toyProblemsJs.prototype.nonRecursePow4 = function(number) {
     c = ((c >> S[4]) + c) & B[4];
     
     return c;
-  }
+  };
 
   var msb32 = function(x)
   {
@@ -55,7 +66,7 @@ toyProblemsJs.prototype.nonRecursePow4 = function(number) {
     if (x & 0x0000FF00) { r += 16/2; x >>= 16/2; }
     if (x & 0x000000F0) { r += 16/4; x >>= 16/4; }
     return r + bval[x];
-  }
+  };
 
   if (Number(number) !== number || number % 1 !== 0) {
     return false;
@@ -84,7 +95,7 @@ toyProblemsJs.prototype.factorialDivision = function(n, d) {
   }
   
   return factorialDivided;
-}
+};
 
 // Given a set of numeric values in an array, 
 // find a subset that maxmizes the sum of weights 
@@ -103,7 +114,7 @@ toyProblemsJs.prototype.greatestNonAdjacentWeights = function(vertices) {
 
   var recurse = function(currentIndex) {
     // end case
-    if (currentIndex != undefined && currentIndex >= vertices.length) {
+    if (currentIndex !== undefined && currentIndex >= vertices.length) {
       if (currentWeight > heaviestWeight) {
         // make a copy of the current indices?
         heaviestIndices = currentIndices.slice();
@@ -112,7 +123,7 @@ toyProblemsJs.prototype.greatestNonAdjacentWeights = function(vertices) {
       return;      
     }
     // push new info on for current index
-    if (currentIndex != undefined) {
+    if (currentIndex !== undefined) {
       currentIndices.push(currentIndex);
       currentWeight += vertices[currentIndex];
 
@@ -134,7 +145,7 @@ toyProblemsJs.prototype.greatestNonAdjacentWeights = function(vertices) {
   recurse();
 
   return heaviestIndices;
-}
+};
 
 
 // problem: get the smallest set of numbers that when squared and
@@ -147,10 +158,7 @@ toyProblemsJs.prototype.sumOfSquaresShortestSet = function(totalInteger) {
     if (value === 0 && set.length > 0 && set.length < 5 ) {
       if (setOut.length > set.length || setOut.length === 0)  {
         setOut = set;
-        return;
       }
-    } else if (set.length === 4) {
-      return;
     }
 
     var biggestSqrt = Math.floor(Math.sqrt(value));
@@ -165,11 +173,11 @@ toyProblemsJs.prototype.sumOfSquaresShortestSet = function(totalInteger) {
       recurse(remainder, biggestSqrt, copiedSet);
       biggestSqrt--;
     }
-  }
+  };
 
   recurse(totalInteger, totalInteger, set);
   return setOut;
-}
+};
 
 toyProblemsJs.prototype.sumOfSquaresAllSets = function(totalInteger) {
   // there will be multiple ways to create a sum of squares that equal the totalInteger
@@ -198,11 +206,11 @@ toyProblemsJs.prototype.sumOfSquaresAllSets = function(totalInteger) {
       recurse(remainder, copiedSet, biggestSqrt);
       biggestSqrt--;
     }
-  }
+  };
 
-  recurse(totalInteger)
+  recurse(totalInteger);
   return setList;
-}
+};
 
 // Deferring a function execution can sometimes save a lot of execution time
 // in our programs by postponing the execution to the latest possible instant
@@ -234,7 +242,7 @@ toyProblemsJs.prototype.make_lazy = function(func) {
   return function() {
     func(1, 2);
   }.bind(this);
-}
+};
 
 // given 2 strings compute the minimum number of edits to change the first into the second
 // an edit is a deletion, a character swap or an insertion
@@ -262,14 +270,14 @@ toyProblemsJs.prototype.levenshteinDistance = function(stringToEdit, stringGoal)
         return decrementedGoal;
       }
     }
-  }
+  };
 
   var editCount = stringToEdit.length > stringGoal.length ? stringToEdit.length : stringGoal.length;
   var count = recurse(stringToEdit.length - 1, stringGoal.length - 1, editCount);
   console.log('edit count', editCount);
   console.log('call count', callCount);
   return count;
-}
+};
 
 // Given a "square" array of subarrays, find the sum of values 
 // from the first value of the first array, the second value 
@@ -291,7 +299,7 @@ toyProblemsJs.prototype.diagonalSum = function(matrix) {
   return matrix.reduce(function(prev, current, index, array) { 
     return prev + current[index]; 
   }, 0);
-}
+};
 
 // assumes all keys start and end with '
 toyProblemsJs.prototype.objectifyString = function(str, allowableKeySet) {
@@ -354,7 +362,7 @@ toyProblemsJs.prototype.objectifyString = function(str, allowableKeySet) {
     }
   }
   return obj;
-}
+};
 
 var stringifyObject = function(obj) {
   var output = "";
@@ -386,7 +394,7 @@ var stringifyObject = function(obj) {
     output += "}";
   }
   return output;
-}
+};
 
 // Write a function that stringifies a binary tree. 
 // JSON.stringify is cheating. Then write a function 
@@ -399,7 +407,7 @@ toyProblemsJs.prototype.stringifyBinaryTree = function(binaryTree) {
     return null;
 
   return stringifyObject(binaryTree);
-}
+};
 
 toyProblemsJs.prototype.binaryTreeifyString = function(binaryTreeString) {
   // remove all whitespace
@@ -412,13 +420,13 @@ toyProblemsJs.prototype.binaryTreeifyString = function(binaryTreeString) {
   var stuff = JSON.parse(binaryTreeString);
   console.log(stuff);
   return stuff;
-}
+};
 
 var goldenRatio = 1.6180339887499;
 var sqrt5 = Math.sqrt(5);
 toyProblemsJs.prototype.fibonacciAtIndex = function(index) {
   return Math.round((Math.pow(goldenRatio, index) - Math.pow(-goldenRatio, -index)) / sqrt5);
-}
+};
 
 // get a sequence of fibonacci numbers from the start and end indices.
 toyProblemsJs.prototype.fibonacciSequence = function(startInclusive, endExclusive, bOnesStart) {
@@ -436,7 +444,7 @@ toyProblemsJs.prototype.fibonacciSequence = function(startInclusive, endExclusiv
   }
   
   return results;
-}
+};
 
 toyProblemsJs.prototype.isPrime = function(input) {
   if (input < 2) 
@@ -448,6 +456,7 @@ toyProblemsJs.prototype.isPrime = function(input) {
 
   var divisor = 5;
   var bBigOffset = false;
+  // sqrt might be a waste
   var halfInput = Math.floor(input / 2); 
   while (divisor < halfInput) {
     if (input % divisor === 0)
@@ -455,7 +464,7 @@ toyProblemsJs.prototype.isPrime = function(input) {
     
     if (bBigOffset) {
       divisor += 4;
-      bBigOffset = false
+      bBigOffset = false;
     } else {
       divisor += 2;
       bBigOffset = true;
@@ -463,7 +472,7 @@ toyProblemsJs.prototype.isPrime = function(input) {
   }
 
   return true;
-}
+};
 
 if ( typeof module !== "undefined" ) {
   module.exports = toyProblemsJs;
