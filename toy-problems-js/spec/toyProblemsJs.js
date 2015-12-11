@@ -16,6 +16,11 @@ describe('alphabetPosition()', function() {
   it('should return empty', function () {
     expect(toyProblemsJs.alphabetPosition("The narwhal bacons at midnight.")).to.equal("20 8 5 14 1 18 23 8 1 12 2 1 3 15 14 19 1 20 13 9 4 14 9 7 8 20");
   });  
+
+  it('should return empty', function () {
+    expect(toyProblemsJs.alphabetPosition('@$3|5v(k')).to.equal("22 11");
+  });  
+  
 });
 
 describe('noOdds()', function () {

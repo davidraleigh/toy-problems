@@ -10,7 +10,7 @@ toyProblemsJs.prototype.alphabetPosition = function(text) {
   var result = '';
   for (var i = 0; i < text.length; i++) {
     var num = text[i].charCodeAt(0) - 96;
-    if (num >= 1 && num <= 32)
+    if (num >= 1 && num <= 26)
       result += num + ' ';
   }
   return result.trim();
